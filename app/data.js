@@ -1,6 +1,6 @@
 // Edit this file to update the content of your site.
 
-export const site = {
+export const site = { 
   name: "Paris Hoffman",
   role: "Developer & Designer",
   tagline: "I build simple, useful things for the web.",
