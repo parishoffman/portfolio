@@ -1,6 +1,6 @@
 // Edit this file to update the content of your site.
 
-export const site = { 
+export const site = {  
   name: "Paris Hoffman",
   role: "Developer & Designer",
   tagline: "I build simple, useful things for the web.",
@@ -11,7 +11,7 @@ export const site = {
   // e.g. "/cutout.png". It stands in front of the folder on the home page.
   cutout: "",
   links: [
-    { label: "GitHub", href: "https://github.com/your-username" },
+    { label: "GitHub", href: "https://github.com/parishoffman/" },
     { label: "LinkedIn", href: "https://www.linkedin.com/in/paris-hoffman/" },
   ],
 };
@@ -173,13 +173,13 @@ export const projects = [
     description: "Another project. Mention the problem it solves and your role.",
     tags: ["React", "Node.js"],
     link: "https://example.com",
-    repo: "https://github.com/your-username/project-two",
+    repo: "https://github.com/parishoffman/project-two",
   },
   {
     title: "Project Three",
     description: "One more project to show off your range.",
     tags: ["JavaScript"],
     link: "",
-    repo: "https://github.com/your-username/project-three",
+    repo: "https://github.com/parishoffman/project-three",
   },
 ];
