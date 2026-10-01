@@ -2,8 +2,7 @@
 
 export const site = {  
   name: "Paris Hoffman",
-  role: "Developer & Designer",
-  tagline: "I build simple, useful things for the web.",
+  role: "",
   email: "parishoffman1@gmail.com",
   // Put a photo of yourself in public/ (e.g. public/me.jpg) and set this to "/me.jpg"
   photo: "/me.jpg",
@@ -27,8 +26,11 @@ export const home = {
 
 export const about = {
   bio: [
-    "Hi! I'm a developer who enjoys turning ideas into clean, working products.",
-    "Outside of coding, I like to write down a few things here about my hobbies and interests.",
+    "Hi! I’m a computer science graduate with experience spanning technology, big law, and creative strategy.", 
+    "I’m drawn to work that sits at the intersection of product, people, and ideas; whether that means building something, simplifying a complex problem, shaping how a product is positioned, or figuring out what would make an experience better for the person on the other side of it.",
+    "My background has taken me from software projects to complex legal work, and along the way I’ve realized that I’m most energized by roles that combine analytical thinking with creativity.", 
+    "I’m especially interested in technology, product, marketing, strategy, and the spaces where those disciplines overlap.",
+    "I created this site as a place to share the things I’ve built, ideas I’ve explored, and problems I’ve found interesting enough to dig into.",
   ],
   skills: ["JavaScript", "React", "Next.js", "HTML & CSS", "Node.js", "Git"],
 };
