@@ -26,7 +26,7 @@ export const home = {
 
 export const about = {
   bio: [
-    "Hi! I’m a computer science graduate with experience spanning technology, big law, and creative strategy.", 
+    "I’m a computer science graduate with experience spanning technology, big law, and creative strategy.", 
     "I’m drawn to work that sits at the intersection of product, people, and ideas; whether that means building something, simplifying a complex problem, shaping how a product is positioned, or figuring out what would make an experience better for the person on the other side of it.",
     "My background has taken me from software projects to complex legal work, and along the way I’ve realized that I’m most energized by roles that combine analytical thinking with creativity.", 
     "I’m especially interested in technology, product, marketing, strategy, and the spaces where those disciplines overlap.",
@@ -58,71 +58,115 @@ export const projects = [
       ],
       overview:
         "A proposed U.S. retail launch for Reale Actives at Sephora. It explores whether an advisor-guided starting point, focused trial and follow-up could help Reale build repeat customers beyond its founder's audience, while giving Sephora a measurable contribution to its skincare category.",
-      // Each section needs a heading, plus paragraphs ("body"), bullet points ("list")
-      // and/or a pull quote ("quote")
-      sections: [
-        {
-          heading: "The challenge",
-          body: [
-            "Reale has a founder who can bring people to a launch. Sephora already gives shoppers reasons to visit. But celebrity attention alone doesn't earn a place on the shelf. The partnership has to prove its value to both businesses.",
-            "The business question: can guided trial create customers who come back?",
-          ],
+      // This project uses its own layout (app/projects/[slug]/RealeSephora.js), so each
+      // section is named. Each needs a heading, plus paragraphs ("body"), bullet points
+      // ("list"), a pull quote ("quote") and/or small print ("note").
+      challenge: {
+        heading: "The challenge",
+        body: [
+          "Reale has a founder who can bring people to a launch. Sephora already gives shoppers reasons to visit. But celebrity attention alone doesn't earn a place on the shelf. The partnership has to prove its value to both businesses.",
+          "The business question: can guided trial create customers who come back?",
+        ],
+      },
+      goals: {
+        heading: "Goals",
+        list: [
+          "For Reale: become a routine shoppers choose even when the founder is off-screen, with demand beyond her following and a lower-risk first purchase.",
+          "For Sephora: turn creator attention into a useful skincare experience and grow category sales, not just shift purchases from existing brands.",
+          "For both: learn from aggregate trial, repeat and returns data before committing to a national rollout.",
+        ],
+      },
+      sephoraCriteria: {
+        eyebrow: "Retail partnership research",
+        heading: "What Sephora is looking for",
+        intro:
+          "Sephora describes its strongest brand relationships as long-term partnerships built around white space, differentiation and sustainable growth.",
+        criteria: [
+          {
+            title: "White space",
+            question: "What is missing?",
+            description: "A clear need within Sephora's existing assortment that the brand can uniquely fill.",
+          },
+          {
+            title: "Differentiation",
+            question: "Why Reale?",
+            description: "A distinct brand point of view that extends beyond founder awareness.",
+          },
+          {
+            title: "Long-term growth",
+            question: "Why will people return?",
+            description: "A reason for shoppers to return after the initial launch moment.",
+          },
+          {
+            title: "Partnership",
+            question: "Why Sephora?",
+            description: "A concept Sephora's merchants, advisors, media and retail ecosystem can help strengthen.",
+          },
+        ],
+        conclusion: {
+          label: "This became the brief",
+          text: "How can Reale turn founder attention into repeatable skincare behavior that creates value for both Reale and Sephora?",
         },
-        {
-          heading: "Goals",
-          list: [
-            "For Reale: become a routine shoppers choose even when the founder is off-screen, with demand beyond her following and a lower-risk first purchase.",
-            "For Sephora: turn creator attention into a useful skincare experience and grow category sales, not just shift purchases from existing brands.",
-            "For both: learn from aggregate trial, repeat and returns data before committing to a national rollout.",
-          ],
+        source: {
+          label: "Source ↗ Carolyn Bojanowski, Sephora",
+          href: "https://www.linkedin.com/pulse/how-sephora-our-brand-partners-work-together-carolyn-bojanowski-xhd9c/",
         },
-        {
-          heading: "Audience & insight",
-          body: [
-            "Working audience: adults 18–29 who wear makeup, shop prestige beauty, and feel unsure about adding actives to their routine.",
-          ],
-          quote: "I can keep plans in my calendar. I need skincare I can actually keep up with.",
-          note: "A research hypothesis, not a shopper quote. The plan validates it with 12 interviews and a 100-person concept test before choosing the final message.",
-        },
-        {
-          heading: "The big idea",
-          body: [
-            "Your life. Your Reale routine. Life supplies the invitation; each shopper's preferences and current routine guide the choice.",
-            "The memorable behavior is the Reale Routine Check: a short advisor conversation that ends with one starting point, a take-home routine card and a trial invitation.",
-          ],
-        },
-        {
-          heading: "How it works",
-          list: [
-            "Choose your goal: makeup removal, hydration or ingredient education.",
-            "Keep what works: shoppers keep products they already use and start with one relevant step.",
-            "Save your card: a routine card records the product's role and directions.",
-            "Try it: the Reale Starting Point, a proposed free trial sleeve, gives seven days to get to know the routine, with no promise of acne results.",
-            "Follow up: opt-in messages at day 0, 3, 7, 30 and 60/90 focus on fit and usage, not a hard sell.",
-          ],
-        },
-        {
-          heading: "Launch plan",
-          list: [
-            "Tease (T–14 to T–1): the founder shows a routine card beside a Sephora bag. \u201cMy routine has a new address.\u201d",
-            "Reveal (launch day): a proposed Sephora Drop Shop LIVE with founder context, dermatologist product education and an advisor-led Routine Check.",
-            "Shop (after the reveal): viewers are directed to the Starting Point trial and the in-store experience.",
-            "Beyond the founder: 12 adult creators across six life contexts and 6 Beauty Advisors deliver repeatable, one-product-at-a-time education.",
-          ],
-        },
-        {
-          heading: "Pilot & measurement",
-          body: [
-            "Rather than a national rollout, the plan proposes a pilot: 6 weeks of preparation, 12 weeks of launch in 8 activation stores alongside 8 matched standard-launch stores, then a 90-day repeat readout.",
-          ],
-          list: [
-            "Did Reale reach new buyers? New-to-Reale purchasers and source recall.",
-            "Did trial help? 30-day full-size buyers per qualified trial.",
-            "Did Sephora grow the category? Category sales change vs. matched stores.",
-            "Did shoppers come back? 90-day repeat rate among first-time buyers.",
-          ],
-        },
-      ],
+      },
+      // DRAFT: review before publishing
+      whiteSpace: {
+        heading: "The white space",
+        body: [
+          "Prestige beauty shoppers are not short on products. What many lack is a clear place to start with actives, and a reason to keep going once they have.",
+          "That gap is where Reale can stand apart: not another product to decode, but a guided starting point that fits alongside the routine a shopper already has.",
+        ],
+        note: "A hypothesis to validate in the shopper research described below.",
+      },
+      audienceInsight: {
+        heading: "Audience & insight",
+        body: [
+          "Working audience: adults 18–29 who wear makeup, shop prestige beauty, and feel unsure about adding actives to their routine.",
+        ],
+        quote: "I can keep plans in my calendar. I need skincare I can actually keep up with.",
+        note: "A research hypothesis, not a shopper quote. The plan validates it with 12 interviews and a 100-person concept test before choosing the final message.",
+      },
+      bigIdea: {
+        heading: "The big idea",
+        body: [
+          "Your life. Your Reale routine. Life supplies the invitation; each shopper's preferences and current routine guide the choice.",
+          "The memorable behavior is the Reale Routine Check: a short advisor conversation that ends with one starting point, a take-home routine card and a trial invitation.",
+        ],
+      },
+      howItWorks: {
+        heading: "How it works",
+        list: [
+          "Choose your goal: makeup removal, hydration or ingredient education.",
+          "Keep what works: shoppers keep products they already use and start with one relevant step.",
+          "Save your card: a routine card records the product's role and directions.",
+          "Try it: the Reale Starting Point, a proposed free trial sleeve, gives seven days to get to know the routine, with no promise of acne results.",
+          "Follow up: opt-in messages at day 0, 3, 7, 30 and 60/90 focus on fit and usage, not a hard sell.",
+        ],
+      },
+      launchPlan: {
+        heading: "Launch plan",
+        list: [
+          "Tease (T–14 to T–1): the founder shows a routine card beside a Sephora bag. \u201cMy routine has a new address.\u201d",
+          "Reveal (launch day): a proposed Sephora Drop Shop LIVE with founder context, dermatologist product education and an advisor-led Routine Check.",
+          "Shop (after the reveal): viewers are directed to the Starting Point trial and the in-store experience.",
+          "Beyond the founder: 12 adult creators across six life contexts and 6 Beauty Advisors deliver repeatable, one-product-at-a-time education.",
+        ],
+      },
+      pilotMeasurement: {
+        heading: "Pilot & measurement",
+        body: [
+          "Rather than a national rollout, the plan proposes a pilot: 6 weeks of preparation, 12 weeks of launch in 8 activation stores alongside 8 matched standard-launch stores, then a 90-day repeat readout.",
+        ],
+        list: [
+          "Did Reale reach new buyers? New-to-Reale purchasers and source recall.",
+          "Did trial help? 30-day full-size buyers per qualified trial.",
+          "Did Sephora grow the category? Category sales change vs. matched stores.",
+          "Did shoppers come back? 90-day repeat rate among first-time buyers.",
+        ],
+      },
       // Put images in public/projects/<slug>/ and reference them like
       // "/projects/<slug>/image.jpg". Leave image as "" to show a placeholder.
       deliverables: [
