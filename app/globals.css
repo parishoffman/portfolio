@@ -8,6 +8,7 @@
   --sky: #bfd4e2;
   --sky-soft: #e1ebf1;
   --sage: #e5efdc;
+  --sage-deep: #c8d9ad;
   --ink: #2a2522;
   --muted: #6e625a;
   --line: rgba(42, 37, 34, 0.25);
@@ -682,6 +683,15 @@ a:hover { color: var(--terracotta-deep); }
   border-bottom: 1px solid var(--line);
 }
 .criteria-row dt { padding-top: 6px; }
+.criteria-row { transition: background-color 200ms ease; }
+.criteria-row > * { transition: transform 200ms ease; }
+@media (hover: hover) {
+  .criteria-row:hover { background-color: var(--sage); }
+  .criteria-row:hover > * { transform: translateX(12px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .criteria-row > * { transition: none; }
+}
 .criteria-row dd { margin: 0; max-width: 560px; }
 .criteria-question {
   display: block;
@@ -702,6 +712,142 @@ a:hover { color: var(--terracotta-deep); }
 .callout .display-headline { margin: 12px 0 0; }
 
 .source-link { display: inline-block; margin-top: 20px; color: var(--muted); }
+
+/* Positioning map: brands plotted along one axis */
+.white-space .eyebrow { margin: 6px 0 12px; color: var(--muted); }
+.white-space .lead { max-width: 640px; margin: 0; }
+
+.position-map {
+  grid-column: 1 / -1;
+  margin: 24px 0 0;
+  padding: clamp(28px, 5vw, 56px);
+  background-color: var(--sand);
+  background-image: var(--grain);
+}
+.axis-labels { display: flex; justify-content: space-between; gap: 16px; }
+.axis-start::before { content: "← "; }
+.axis-end::after { content: " →"; }
+
+.axis {
+  position: relative;
+  height: 150px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--ink);
+}
+.axis-point {
+  position: absolute;
+  top: 0;
+  left: var(--pos);
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  text-align: center;
+}
+.axis-point::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  margin-left: -4.5px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+.axis-name { font-size: 1rem; white-space: nowrap; }
+
+.axis-point.is-highlight { padding-top: 26px; }
+.axis-point.is-highlight::before {
+  top: -11px;
+  width: 22px;
+  height: 22px;
+  margin-left: -11px;
+  background: var(--sage-deep);
+  border: 1px solid var(--ink);
+}
+.is-highlight .axis-name {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.axis-annotation {
+  width: 240px;
+  margin-top: 6px;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  color: var(--terracotta-deep);
+}
+
+.opportunity { text-align: center; }
+.opportunity p {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  line-height: 1.2;
+}
+.white-space-note { grid-column: 1 / -1; margin: 0; }
+
+/* Big idea: a full-width green insert that breaks from the report style */
+.big-idea {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 85vh;
+  margin: 48px calc(-1 * clamp(24px, 5vw, 56px));
+  padding: clamp(40px, 7vw, 80px) clamp(24px, 5vw, 56px);
+  background-color: var(--sage);
+  background-image: var(--grain);
+}
+.big-idea-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 auto;
+  padding-bottom: 48px;
+}
+.big-idea-headline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 11vw, 7.5rem);
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+.big-idea-pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin: 64px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.big-idea-pillars li {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+}
+.big-idea-pillars .label { font-weight: 700; }
+.big-idea-pillar-text {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  line-height: 1.2;
+}
+.big-idea-body { max-width: 560px; margin: 40px 0 auto; font-size: 1rem; color: var(--muted); }
 
 /* ---------- Mobile ---------- */
 
@@ -747,6 +893,37 @@ a:hover { color: var(--terracotta-deep); }
   .doc-section > .label { padding-top: 0; }
   .criteria-row { grid-template-columns: 1fr; gap: 4px; }
   .criteria-row dt { padding-top: 0; }
+
+  /* The map turns vertical: clinical at the top, lifestyle at the bottom */
+  .position-map { margin-top: 16px; }
+  .position-map { display: flex; flex-direction: column; }
+  .axis-labels { display: contents; }
+  .axis-start::before { content: "↑ "; }
+  .axis-end { order: 1; }
+  .axis-end::before { content: "↓ "; }
+  .axis-end::after { content: none; }
+  .opportunity { order: 2; margin-top: 32px; }
+  .axis {
+    height: auto;
+    margin: 16px 0 16px 6px;
+    border-top: 0;
+    border-left: 1px solid var(--ink);
+  }
+  .axis-point,
+  .axis-point.is-highlight {
+    position: relative;
+    left: 0;
+    transform: none;
+    align-items: flex-start;
+    padding: 12px 0 12px 24px;
+    text-align: left;
+  }
+  .axis-point::before { top: 50%; left: 0; margin: -4.5px 0 0 -5px; }
+  .axis-point.is-highlight::before { top: 22px; margin: -11px 0 0 -11.5px; }
+  .axis-annotation { width: auto; }
+
+  .big-idea { min-height: 0; margin-inline: -18px; padding-inline: 18px; }
+  .big-idea-pillars { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
 }
 
 @media (max-width: 600px) {

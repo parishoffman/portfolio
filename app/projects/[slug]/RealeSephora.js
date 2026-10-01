@@ -44,10 +44,85 @@ function SephoraCriteria({ cs }) {
     </section>
   );
 }
-const WhiteSpace = ({ cs }) => <Section section={cs.whiteSpace} number={4} />;
+function WhiteSpace({ cs }) {
+  const s = cs.whiteSpace;
+  return (
+    <section className="doc-section white-space">
+      <span className="label">No. {pad(4)}</span>
+      <div>
+        {s.eyebrow && <p className="label eyebrow">{s.eyebrow}</p>}
+        <h2>{s.heading}</h2>
+        {s.intro && <p className="lead">{s.intro}</p>}
+      </div>
+
+      <figure className="position-map">
+        <div className="axis-labels label">
+          <span className="axis-start">{s.axis.left}</span>
+          <span className="axis-end">{s.axis.right}</span>
+        </div>
+
+        <ol className="axis">
+          {s.brands.map((brand) => (
+            <li
+              key={brand.name}
+              className={brand.highlight ? "axis-point is-highlight" : "axis-point"}
+              style={{ "--pos": `${brand.position}%` }}
+            >
+              <span className="axis-name">{brand.name}</span>
+              {brand.annotation && <span className="script axis-annotation">↑ {brand.annotation}</span>}
+            </li>
+          ))}
+        </ol>
+
+        {s.opportunity && (
+          <figcaption className="opportunity">
+            <span className="label">{s.opportunity.label}</span>
+            <p>
+              {s.opportunity.lines.map((line, i) => (
+                <span key={i}>{line}</span>
+              ))}
+            </p>
+          </figcaption>
+        )}
+      </figure>
+
+      {s.note && <p className="note white-space-note">{s.note}</p>}
+    </section>
+  );
+}
 
 const AudienceInsight = ({ cs }) => <Section section={cs.audienceInsight} number={5} />;
-const BigIdea = ({ cs }) => <Section section={cs.bigIdea} number={6} />;
+// The break from the report: research is done, the campaign starts here.
+function BigIdea({ cs }) {
+  const s = cs.bigIdea;
+  return (
+    <section id="big-idea" className="big-idea">
+      <p className="label big-idea-meta">
+        <span>No. {pad(6)}</span>
+        <span>{s.heading}</span>
+      </p>
+
+      <h2 className="big-idea-headline">
+        {s.headline.map((line) => (
+          <span key={line}>{line}</span>
+        ))}
+      </h2>
+
+      <ol className="big-idea-pillars">
+        {s.pillars.map((pillar) => (
+          <li key={pillar.title}>
+            <span className="label">{pillar.title}</span>
+            <span className="big-idea-pillar-text">{pillar.text}</span>
+          </li>
+        ))}
+      </ol>
+
+      {s.body?.map((paragraph, i) => (
+        <p key={i} className="big-idea-body">{paragraph}</p>
+      ))}
+    </section>
+  );
+}
 const HowItWorks = ({ cs }) => <Section section={cs.howItWorks} number={7} />;
 const LaunchPlan = ({ cs }) => <Section section={cs.launchPlan} number={8} />;
 

@@ -112,14 +112,22 @@ export const projects = [
           href: "https://www.linkedin.com/pulse/how-sephora-our-brand-partners-work-together-carolyn-bojanowski-xhd9c/",
         },
       },
-      // DRAFT: review before publishing
+      // A perceptual map: "position" is where each brand sits on the axis, 0–100.
       whiteSpace: {
+        eyebrow: "Category opportunity",
         heading: "The white space",
-        body: [
-          "Prestige beauty shoppers are not short on products. What many lack is a clear place to start with actives, and a reason to keep going once they have.",
-          "That gap is where Reale can stand apart: not another product to decode, but a guided starting point that fits alongside the routine a shopper already has.",
+        intro:
+          "Reale does not need to out-clinical the clinical brands or out-lifestyle the lifestyle brands. The opportunity sits between the two.",
+        axis: { left: "Clinical / functional", right: "Lifestyle / cultural" },
+        brands: [
+          { name: "The Ordinary", position: 8 },
+          { name: "Paula's Choice", position: 29 },
+          { name: "Reale Actives", position: 50, highlight: true, annotation: "active skincare made easier to live with" },
+          { name: "Rhode", position: 71 },
+          { name: "Summer Fridays", position: 92 },
         ],
-        note: "A hypothesis to validate in the shopper research described below.",
+        opportunity: { label: "Opportunity", lines: ["Clinical credibility", "×", "lifestyle ease"] },
+        note: "Illustrative positioning based on how each brand presents itself, not shopper research.",
       },
       audienceInsight: {
         heading: "Audience & insight",
@@ -129,10 +137,16 @@ export const projects = [
         quote: "I can keep plans in my calendar. I need skincare I can actually keep up with.",
         note: "A research hypothesis, not a shopper quote. The plan validates it with 12 interviews and a 100-person concept test before choosing the final message.",
       },
+      // Full-bleed campaign moment: "headline" lines stack, "pillars" sit beneath.
       bigIdea: {
         heading: "The big idea",
+        headline: ["Your life.", "Your Reale", "routine."],
+        pillars: [
+          { title: "Life", text: "creates the need" },
+          { title: "Reale", text: "provides the starting point" },
+          { title: "Sephora", text: "turns it into guidance + trial" },
+        ],
         body: [
-          "Your life. Your Reale routine. Life supplies the invitation; each shopper's preferences and current routine guide the choice.",
           "The memorable behavior is the Reale Routine Check: a short advisor conversation that ends with one starting point, a take-home routine card and a trial invitation.",
         ],
       },
