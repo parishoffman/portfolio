@@ -849,6 +849,65 @@ a:hover { color: var(--terracotta-deep); }
 }
 .big-idea-body { max-width: 560px; margin: 40px 0 auto; font-size: 1rem; color: var(--muted); }
 
+/* Campaign system: the same ad template repeated across life moments */
+.campaign-system .eyebrow { margin: 6px 0 12px; color: var(--muted); }
+.campaign-system .lead { max-width: 640px; margin: 0; }
+
+.system { grid-column: 1 / -1; margin-top: 16px; }
+.system-formula {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0 0 20px;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+}
+.system-formula li + li::before { content: "→"; margin-right: 12px; }
+
+.system-tiles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.system-tile {
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 5;
+  padding: clamp(20px, 3vw, 28px);
+  background-color: var(--sage);
+  background-image: var(--grain);
+}
+.system-tile p { margin: 0; }
+.system-tile-meta { display: flex; justify-content: space-between; gap: 12px; font-size: 0.7rem; }
+.system-tile-headline {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto !important;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+.system-tile-need {
+  margin-top: 16px !important;
+  padding-top: 14px;
+  border-top: 1px solid var(--ink);
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+.system-tile-need strong { font-weight: 400; color: var(--terracotta-deep); }
+.system-tile-signoff { margin-top: auto !important; font-size: 1.4rem; line-height: 1.2; }
+
+.creative-executions-gallery { grid-column: 1 / -1; }
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 860px) {
@@ -924,6 +983,9 @@ a:hover { color: var(--terracotta-deep); }
 
   .big-idea { min-height: 0; margin-inline: -18px; padding-inline: 18px; }
   .big-idea-pillars { grid-template-columns: 1fr; gap: 16px; margin-top: 40px; }
+
+  .system-tiles { grid-template-columns: 1fr; }
+  .system-tile { aspect-ratio: auto; min-height: 340px; }
 }
 
 @media (max-width: 600px) {

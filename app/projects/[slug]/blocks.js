@@ -72,22 +72,28 @@ export function Gallery({ items, heading = "The work — creative & deliverables
   return (
     <section className="doc-block">
       <p className="label">{heading}</p>
-      <div className="gallery">
-        {items.map((item) => (
-          <figure key={item.title} className="polaroid gallery-item">
-            {item.image ? (
-              <img src={item.image} alt={`${item.title}: ${item.description}`} loading="lazy" />
-            ) : (
-              <div className="polaroid-empty label">Image coming soon</div>
-            )}
-            <figcaption>
-              <strong>{item.title}</strong>
-              <span>{item.description}</span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+      <GalleryGrid items={items} />
     </section>
+  );
+}
+
+export function GalleryGrid({ items }) {
+  return (
+    <div className="gallery">
+      {items.map((item) => (
+        <figure key={item.title} className="polaroid gallery-item">
+          {item.image ? (
+            <img src={item.image} alt={`${item.title}: ${item.description}`} loading="lazy" />
+          ) : (
+            <div className="polaroid-empty label">Image coming soon</div>
+          )}
+          <figcaption>
+            <strong>{item.title}</strong>
+            <span>{item.description}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
   );
 }
 

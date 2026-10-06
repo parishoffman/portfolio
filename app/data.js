@@ -169,6 +169,22 @@ export const projects = [
           "Beyond the founder: 12 adult creators across six life contexts and 6 Beauty Advisors deliver repeatable, one-product-at-a-time education.",
         ],
       },
+      // One template, repeated: a life moment, the need it creates, one starting point.
+      campaignSystem: {
+        eyebrow: "Campaign system",
+        heading: "One platform. Different lives.",
+        intro:
+          "The idea isn't one ad. It's a repeatable creative framework: a real-life moment, the need it creates, and one Reale starting point.",
+        formula: ["Life moment", "Need", "Starting point"],
+        tileLabel: "Reale Actives × Sephora",
+        signoff: "Your life. Your Reale routine.",
+        situations: [
+          { headline: ["Full glam.", "Early alarm."], need: "Remove makeup", startingPoint: "Pore Power" },
+          { headline: ["Red-eye.", "8AM meeting."], need: "Support hydration", startingPoint: "Dew More" },
+          { headline: ["Long day.", "Short routine."], need: "Keep it simple", startingPoint: "One starting point" },
+          { headline: ["New active.", "Sensitive skin."], need: "Explore an active", startingPoint: "Advisor guidance" },
+        ],
+      },
       pilotMeasurement: {
         heading: "Pilot & measurement",
         body: [
@@ -181,30 +197,33 @@ export const projects = [
           "Did shoppers come back? 90-day repeat rate among first-time buyers.",
         ],
       },
-      // Put images in public/projects/<slug>/ and reference them like
-      // "/projects/<slug>/image.jpg". Leave image as "" to show a placeholder.
-      deliverables: [
-        {
-          title: "The Reale Routine Check",
-          description: "In-store fixture with three simple entry points and a printed routine card.",
-          image: "/projects/reale-sephora/retail-experience.jpg",
-        },
-        {
-          title: "Routine card & digital check",
-          description: "One starting point, with room for the shopper's current routine.",
-          image: "/projects/reale-sephora/routine-check.jpg",
-        },
-        {
-          title: "The Reale Starting Point",
-          description: "Proposed trial sleeve pairing Pore Power and Dew More for a seven-day introduction.",
-          image: "/projects/reale-sephora/starting-point-trial.jpg",
-        },
-        {
-          title: "Social creative",
-          description: "Feed art direction: \u201cFull glam. Early alarm.\u201d",
-          image: "/projects/reale-sephora/creator-social.jpg",
-        },
-      ],
+      creativeExecutions: {
+        heading: "Creative executions",
+        // Put images in public/projects/<slug>/ and reference them like
+        // "/projects/<slug>/image.jpg". Leave image as "" to show a placeholder.
+        items: [
+          {
+            title: "The Reale Routine Check",
+            description: "In-store fixture with three simple entry points and a printed routine card.",
+            image: "/projects/reale-sephora/retail-experience.jpg",
+          },
+          {
+            title: "Routine card & digital check",
+            description: "One starting point, with room for the shopper's current routine.",
+            image: "/projects/reale-sephora/routine-check.jpg",
+          },
+          {
+            title: "The Reale Starting Point",
+            description: "Proposed trial sleeve pairing Pore Power and Dew More for a seven-day introduction.",
+            image: "/projects/reale-sephora/starting-point-trial.jpg",
+          },
+          {
+            title: "Social creative",
+            description: "Feed art direction: \u201cFull glam. Early alarm.\u201d",
+            image: "/projects/reale-sephora/creator-social.jpg",
+          },
+        ],
+      },
       // Projected or measured results. For a mock campaign, label these as targets.
       resultsHeading: "Proposed pilot at a glance",
       results: [
