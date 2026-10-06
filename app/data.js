@@ -315,6 +315,18 @@ export const projects = [
       ],
       resultsNote:
         "Planning assumptions, not forecasts. No ROI or campaign results are claimed.",
+      // Closing: what scales if the pilot works, then the ask.
+      testNext: {
+        label: "What I'd test next",
+        heading: "If the pilot works",
+        list: [
+          "Expand the Routine Check to additional doors",
+          "Optimize product entry points using trial data",
+          "Scale the strongest life-context creative",
+          "Introduce a Sephora-exclusive trial or mini set",
+          "Test new audiences beyond the founder's existing following",
+        ],
+      },
       nextStep:
         "The proposed ask: a feasibility workshop with brand, retail education, operations and analytics, followed by small shopper tests.",
       downloads: [

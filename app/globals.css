@@ -986,6 +986,29 @@ a:hover { color: var(--terracotta-deep); }
 .value-for-both .callout { margin-top: 40px; }
 .value-for-both .callout .display-headline { margin: 0; }
 
+/* Closing: what I'd test next */
+.test-next { margin-top: 32px; border-top: 1px solid var(--ink); padding-top: 24px; }
+.test-next > .label { margin: 0; color: var(--muted); }
+.test-next h2 {
+  margin: 8px 0 20px;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.test-next-list { margin: 0; padding: 0; list-style: none; }
+.test-next-list li {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.test-next-list .label { color: var(--terracotta-deep); }
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 860px) {

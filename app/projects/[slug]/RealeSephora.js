@@ -269,6 +269,25 @@ const PilotMeasurement = ({ cs, number }) => (
   </>
 );
 
+// A strategist's ending: what to scale if the pilot proves out.
+function TestNext({ section }) {
+  if (!section) return null;
+  return (
+    <section className="doc-block test-next">
+      <p className="label">{section.label}</p>
+      <h2>{section.heading}</h2>
+      <ol className="test-next-list">
+        {section.list.map((item, i) => (
+          <li key={item}>
+            <span className="label">{pad(i + 1)}</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ol>
+    </section>
+  );
+}
+
 // Page order. Each section renders only when its content key exists in data.js,
 // and is numbered by its position among the sections that render.
 const sections = [
@@ -297,6 +316,7 @@ export default function RealeSephora({ project, number }) {
         <Component key={key} cs={cs} number={i + 1} />
       ))}
 
+      <TestNext section={cs.testNext} />
       <NextStep text={cs.nextStep} />
       <Downloads files={cs.downloads} />
       <Disclosure paragraphs={cs.disclosure} />
