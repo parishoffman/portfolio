@@ -185,6 +185,31 @@ export const projects = [
           { headline: ["New active.", "Sensitive skin."], need: "Explore an active", startingPoint: "Advisor guidance" },
         ],
       },
+      valueForBoth: {
+        heading: "Why this works for both",
+        columns: [
+          {
+            title: "For Reale",
+            list: [
+              "Builds demand beyond founder attention",
+              "Lowers first-purchase friction",
+              "Creates a reason to return",
+              "Establishes a repeatable retail learning loop",
+            ],
+          },
+          {
+            title: "For Sephora",
+            list: [
+              "Introduces a differentiated skincare experience",
+              "Increases guided trial",
+              "Creates Beauty Advisor interaction",
+              "Gives the retailer measurable category behavior",
+            ],
+          },
+        ],
+        conclusion:
+          "The partnership works only if the launch creates value after the initial attention disappears.",
+      },
       pilotMeasurement: {
         heading: "Pilot & measurement",
         body: [

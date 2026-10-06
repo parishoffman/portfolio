@@ -959,6 +959,23 @@ a:hover { color: var(--terracotta-deep); }
 }
 .execution-planned:first-child { width: 100%; }
 
+/* Why this works for both: two columns + conclusion */
+.value-columns { display: grid; grid-template-columns: repeat(2, 1fr); gap: 32px; margin-top: 24px; }
+.value-columns h3 {
+  margin: 0;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.value-columns .line-list { margin: 0; }
+.value-columns .line-list li:first-child { border-top: 0; }
+.value-for-both .callout { margin-top: 40px; }
+.value-for-both .callout .display-headline { margin: 0; }
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 860px) {
@@ -1041,6 +1058,8 @@ a:hover { color: var(--terracotta-deep); }
   .chapter-header { grid-template-columns: 1fr; gap: 4px; }
   .chapter-header .label { padding-top: 0; }
   .chapter-grid { grid-template-columns: 1fr; gap: 32px; }
+
+  .value-columns { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {

@@ -231,6 +231,37 @@ function Execution({ item }) {
   );
 }
 
+function ValueForBoth({ cs, number }) {
+  const s = cs.valueForBoth;
+  return (
+    <section className="doc-section value-for-both">
+      <span className="label">No. {pad(number)}</span>
+      <div>
+        <h2>{s.heading}</h2>
+
+        <div className="value-columns">
+          {s.columns.map((column) => (
+            <div key={column.title}>
+              <h3>{column.title}</h3>
+              <ul className="line-list">
+                {column.list.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {s.conclusion && (
+          <div className="callout">
+            <p className="display-headline">{s.conclusion}</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
 const PilotMeasurement = ({ cs, number }) => (
   <>
     <Section section={cs.pilotMeasurement} number={number} />
@@ -251,6 +282,7 @@ const sections = [
   ["launchPlan", LaunchPlan],
   ["campaignSystem", CampaignSystem],
   ["creativeExecutions", CreativeExecutions],
+  ["valueForBoth", ValueForBoth],
   ["pilotMeasurement", PilotMeasurement],
 ];
 
