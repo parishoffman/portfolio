@@ -41,7 +41,7 @@ export function Hero({ project, number }) {
 }
 
 // A numbered section. Content can have paragraphs ("body"), a pull quote ("quote"),
-// a small print note ("note") and bullet points ("list").
+// a small print note ("note") and bullet points ("list"), with an optional "listHeading".
 export function Section({ section, number, children }) {
   if (!section) return null;
   return (
@@ -54,6 +54,7 @@ export function Section({ section, number, children }) {
         ))}
         {section.quote && <blockquote className="pull-quote">“{section.quote}”</blockquote>}
         {section.note && <p className="note">{section.note}</p>}
+        {section.listHeading && <h3 className="list-heading">{section.listHeading}</h3>}
         {section.list && (
           <ul className="line-list">
             {section.list.map((item) => (

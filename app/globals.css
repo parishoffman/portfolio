@@ -972,6 +972,16 @@ a:hover { color: var(--terracotta-deep); }
   text-transform: uppercase;
 }
 .value-columns .line-list { margin: 0; }
+.list-heading {
+  margin: 28px 0 0;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.list-heading + .line-list { margin-top: 10px; }
+.list-heading + .line-list li:first-child { border-top-color: var(--ink); }
 .value-columns .line-list li:first-child { border-top: 0; }
 .value-for-both .callout { margin-top: 40px; }
 .value-for-both .callout .display-headline { margin: 0; }

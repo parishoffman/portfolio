@@ -215,6 +215,7 @@ export const projects = [
         body: [
           "Rather than a national rollout, the plan proposes a pilot: 6 weeks of preparation, 12 weeks of launch in 8 activation stores alongside 8 matched standard-launch stores, then a 90-day repeat readout.",
         ],
+        listHeading: "What would prove the strategy worked?",
         list: [
           "Did Reale reach new buyers? New-to-Reale purchasers and source recall.",
           "Did trial help? 30-day full-size buyers per qualified trial.",
