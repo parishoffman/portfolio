@@ -1,4 +1,4 @@
-import { pad, Hero, Section, GalleryGrid, Results, NextStep, Downloads, Disclosure } from "./blocks";
+import { pad, Hero, Section, Results, NextStep, Downloads, Disclosure } from "./blocks";
 
 // Custom layout for the Reale Actives × Sephora case study.
 // Content lives in app/data.js under the project's caseStudy.
@@ -175,6 +175,7 @@ function CampaignSystem({ cs, number }) {
   );
 }
 
+// Executions grouped by channel, so the work reads as one integrated campaign.
 function CreativeExecutions({ cs, number }) {
   const s = cs.creativeExecutions;
   return (
@@ -182,12 +183,51 @@ function CreativeExecutions({ cs, number }) {
       <span className="label">No. {pad(number)}</span>
       <div>
         <h2>{s.heading}</h2>
-        {s.intro && <p>{s.intro}</p>}
+        {s.intro && <p className="lead">{s.intro}</p>}
       </div>
-      <div className="creative-executions-gallery">
-        <GalleryGrid items={s.items} />
+
+      <div className="chapters">
+        {s.chapters.map((chapter, i) => (
+          <section key={chapter.title} className="chapter">
+            <header className="chapter-header">
+              <span className="label">Chapter {String.fromCharCode(65 + i)}</span>
+              <div>
+                <h3>{chapter.title}</h3>
+                {chapter.description && <p>{chapter.description}</p>}
+              </div>
+            </header>
+            <div className="chapter-grid">
+              {chapter.items.map((item) => (
+                <Execution key={item.title} item={item} />
+              ))}
+            </div>
+          </section>
+        ))}
       </div>
     </section>
+  );
+}
+
+function Execution({ item }) {
+  if (!item.image) {
+    return (
+      <figure className="execution execution-planned">
+        <div className="execution-slot label">Coming soon</div>
+        <figcaption>
+          <strong>{item.title}</strong>
+          <span>{item.description}</span>
+        </figcaption>
+      </figure>
+    );
+  }
+  return (
+    <figure className="execution polaroid">
+      <img src={item.image} alt={`${item.title}: ${item.description}`} loading="lazy" />
+      <figcaption>
+        <strong>{item.title}</strong>
+        <span>{item.description}</span>
+      </figcaption>
+    </figure>
   );
 }
 

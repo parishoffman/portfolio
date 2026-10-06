@@ -197,30 +197,85 @@ export const projects = [
           "Did shoppers come back? 90-day repeat rate among first-time buyers.",
         ],
       },
+      // Grouped by channel. Each chapter's first item is shown large.
+      // Put images in public/projects/<slug>/ and reference them like
+      // "/projects/<slug>/image.jpg". Leave image as "" to show a "coming soon" slot.
       creativeExecutions: {
         heading: "Creative executions",
-        // Put images in public/projects/<slug>/ and reference them like
-        // "/projects/<slug>/image.jpg". Leave image as "" to show a placeholder.
-        items: [
+        intro: "One idea, carried through every place a shopper meets it: in store, on their phone, and in their feed.",
+        chapters: [
           {
-            title: "The Reale Routine Check",
-            description: "In-store fixture with three simple entry points and a printed routine card.",
-            image: "/projects/reale-sephora/retail-experience.jpg",
+            title: "Retail experience",
+            description: "Where the Routine Check happens: a short advisor conversation that ends with something to take home.",
+            items: [
+              {
+                title: "The Reale Routine Check",
+                description: "In-store fixture with three simple entry points and a printed routine card.",
+                image: "/projects/reale-sephora/retail-experience.jpg",
+              },
+              {
+                title: "Routine card",
+                description: "A take-home card recording the product's role and directions.",
+                image: "",
+              },
+              {
+                title: "The Reale Starting Point",
+                description: "Proposed trial sleeve pairing Pore Power and Dew More for a seven-day introduction.",
+                image: "/projects/reale-sephora/starting-point-trial.jpg",
+              },
+            ],
           },
           {
-            title: "Routine card & digital check",
-            description: "One starting point, with room for the shopper's current routine.",
-            image: "/projects/reale-sephora/routine-check.jpg",
+            title: "Digital experience",
+            description: "The same starting point, available before and after the store visit.",
+            items: [
+              {
+                title: "Your starting point",
+                description: "Recommended product screen: one starting point, with room for the shopper's current routine.",
+                image: "/projects/reale-sephora/routine-check.jpg",
+              },
+              {
+                title: "Starting point finder",
+                description: "A short in-app check in the Sephora app that mirrors the in-store conversation.",
+                image: "",
+              },
+              {
+                title: "Beauty Insider follow-up",
+                description: "Opt-in trial and follow-up messages focused on fit and usage, not a hard sell.",
+                image: "",
+              },
+            ],
           },
           {
-            title: "The Reale Starting Point",
-            description: "Proposed trial sleeve pairing Pore Power and Dew More for a seven-day introduction.",
-            image: "/projects/reale-sephora/starting-point-trial.jpg",
-          },
-          {
-            title: "Social creative",
-            description: "Feed art direction: \u201cFull glam. Early alarm.\u201d",
-            image: "/projects/reale-sephora/creator-social.jpg",
+            title: "Campaign & social",
+            description: "One template, repeated across life moments and carried by creators beyond the founder.",
+            items: [
+              {
+                title: "Full glam. Early alarm.",
+                description: "Feed art direction for the makeup-removal moment.",
+                image: "/projects/reale-sephora/creator-social.jpg",
+              },
+              {
+                title: "Red-eye. 8AM meeting.",
+                description: "Life moment: support hydration with Dew More.",
+                image: "",
+              },
+              {
+                title: "Long day. Short routine.",
+                description: "Life moment: keep it simple with one starting point.",
+                image: "",
+              },
+              {
+                title: "Creator carousel",
+                description: "Adult creators across six life contexts, one product at a time.",
+                image: "",
+              },
+              {
+                title: "Storefront & OOH",
+                description: "The campaign line at the shelf and on the street, pointing to the Routine Check.",
+                image: "",
+              },
+            ],
           },
         ],
       },
