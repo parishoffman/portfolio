@@ -172,7 +172,7 @@ export const projects = [
       // One template, repeated: a life moment, the need it creates, one starting point.
       campaignSystem: {
         eyebrow: "Campaign system",
-        heading: "One platform. Different lives.",
+        headline: ["One platform.", "Different lives."],
         intro:
           "The idea isn't one ad. It's a repeatable creative framework: a real-life moment, the need it creates, and one Reale starting point.",
         formula: ["Life moment", "Need", "Starting point"],
@@ -215,12 +215,12 @@ export const projects = [
         body: [
           "Rather than a national rollout, the plan proposes a pilot: 6 weeks of preparation, 12 weeks of launch in 8 activation stores alongside 8 matched standard-launch stores, then a 90-day repeat readout.",
         ],
-        listHeading: "What would prove the strategy worked?",
-        list: [
-          "Did Reale reach new buyers? New-to-Reale purchasers and source recall.",
-          "Did trial help? 30-day full-size buyers per qualified trial.",
-          "Did Sephora grow the category? Category sales change vs. matched stores.",
-          "Did shoppers come back? 90-day repeat rate among first-time buyers.",
+        proofHeading: "What would prove the strategy worked?",
+        proofs: [
+          { question: "Did Reale reach new buyers?", metric: "New-to-Reale purchasers and source recall" },
+          { question: "Did trial help?", metric: "30-day full-size buyers per qualified trial" },
+          { question: "Did Sephora grow the category?", metric: "Category sales change vs. matched stores" },
+          { question: "Did shoppers come back?", metric: "90-day repeat rate among first-time buyers" },
         ],
       },
       // Grouped by channel. Each chapter's first item is shown large.

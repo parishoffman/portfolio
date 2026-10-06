@@ -99,8 +99,8 @@ const AudienceInsight = ({ cs, number }) => <Section section={cs.audienceInsight
 function BigIdea({ cs, number }) {
   const s = cs.bigIdea;
   return (
-    <section id="big-idea" className="big-idea">
-      <p className="label big-idea-meta">
+    <section id="big-idea" className="band band-green big-idea">
+      <p className="label band-meta">
         <span>No. {pad(number)}</span>
         <span>{s.heading}</span>
       </p>
@@ -134,13 +134,17 @@ const LaunchPlan = ({ cs, number }) => <Section section={cs.launchPlan} number={
 function CampaignSystem({ cs, number }) {
   const s = cs.campaignSystem;
   return (
-    <section className="doc-section campaign-system">
-      <span className="label">No. {pad(number)}</span>
-      <div>
-        {s.eyebrow && <p className="label eyebrow">{s.eyebrow}</p>}
-        <h2>{s.heading}</h2>
-        {s.intro && <p className="lead">{s.intro}</p>}
-      </div>
+    <section className="band band-green campaign-system">
+      <p className="label band-meta">
+        <span>No. {pad(number)}</span>
+        <span>{s.eyebrow}</span>
+      </p>
+      <h2 className="band-headline">
+        {s.headline.map((line) => (
+          <span key={line}>{line}</span>
+        ))}
+      </h2>
+      {s.intro && <p className="lead">{s.intro}</p>}
 
       <div className="system">
         {s.formula && (
@@ -179,12 +183,13 @@ function CampaignSystem({ cs, number }) {
 function CreativeExecutions({ cs, number }) {
   const s = cs.creativeExecutions;
   return (
-    <section className="doc-section creative-executions">
-      <span className="label">No. {pad(number)}</span>
-      <div>
-        <h2>{s.heading}</h2>
-        {s.intro && <p className="lead">{s.intro}</p>}
-      </div>
+    <section className="band band-dark creative-executions">
+      <p className="label band-meta">
+        <span>No. {pad(number)}</span>
+        <span>The work</span>
+      </p>
+      <h2 className="creative-heading">{s.heading}</h2>
+      {s.intro && <p className="lead">{s.intro}</p>}
 
       <div className="chapters">
         {s.chapters.map((chapter, i) => (
@@ -197,8 +202,8 @@ function CreativeExecutions({ cs, number }) {
               </div>
             </header>
             <div className="chapter-grid">
-              {chapter.items.map((item) => (
-                <Execution key={item.title} item={item} />
+              {chapter.items.map((item, j) => (
+                <Execution key={item.title} item={item} featured={j === 0} />
               ))}
             </div>
           </section>
@@ -208,10 +213,12 @@ function CreativeExecutions({ cs, number }) {
   );
 }
 
-function Execution({ item }) {
+// The first item in each chapter is shown large and unframed; the rest as polaroids.
+function Execution({ item, featured }) {
+  const featuredClass = featured ? " is-featured" : "";
   if (!item.image) {
     return (
-      <figure className="execution execution-planned">
+      <figure className={`execution execution-planned${featuredClass}`}>
         <div className="execution-slot label">Coming soon</div>
         <figcaption>
           <strong>{item.title}</strong>
@@ -221,7 +228,7 @@ function Execution({ item }) {
     );
   }
   return (
-    <figure className="execution polaroid">
+    <figure className={featured ? "execution is-featured" : "execution polaroid"}>
       <img src={item.image} alt={`${item.title}: ${item.description}`} loading="lazy" />
       <figcaption>
         <strong>{item.title}</strong>
@@ -262,12 +269,34 @@ function ValueForBoth({ cs, number }) {
   );
 }
 
-const PilotMeasurement = ({ cs, number }) => (
-  <>
-    <Section section={cs.pilotMeasurement} number={number} />
-    <Results items={cs.results} heading={cs.resultsHeading} note={cs.resultsNote} />
-  </>
-);
+// Back to the report: each measure answers a question from the strategy.
+function PilotMeasurement({ cs, number }) {
+  const s = cs.pilotMeasurement;
+  return (
+    <>
+      <Section section={s} number={number}>
+        {s.proofs && (
+          <>
+            <h3 className="list-heading">{s.proofHeading}</h3>
+            <ol className="proof-grid">
+              {s.proofs.map((proof, i) => (
+                <li key={proof.question}>
+                  <span className="label proof-number">Q{i + 1}</span>
+                  <p className="proof-question">{proof.question}</p>
+                  <p className="proof-metric">
+                    <span className="label">Measured by</span>
+                    {proof.metric}
+                  </p>
+                </li>
+              ))}
+            </ol>
+          </>
+        )}
+      </Section>
+      <Results items={cs.results} heading={cs.resultsHeading} note={cs.resultsNote} />
+    </>
+  );
+}
 
 // A strategist's ending: what to scale if the pilot proves out.
 function TestNext({ section }) {
