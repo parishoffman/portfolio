@@ -787,11 +787,7 @@ a:hover { color: var(--terracotta-deep); }
 }
 .quadrant-zones strong { font-family: var(--sans); font-weight: 700; font-size: 1rem; line-height: 1.25; }
 .quadrant-zones span { color: var(--muted); font-size: 1rem; line-height: 1.35; }
-/* Labels sit toward the outer edges, leaving the middle of each zone for brand dots */
-.quadrant-zones li:nth-child(-n + 2) { justify-content: flex-start; }
-.quadrant-zones li:nth-child(n + 3) { justify-content: flex-end; }
 .quadrant-zones .is-highlight {
-  justify-content: center !important;
   background-color: var(--sage-deep);
   border: 1px solid var(--ink);
 }
