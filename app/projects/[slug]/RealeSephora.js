@@ -232,7 +232,9 @@ function LaunchPlan({ cs, number }) {
             <p className="label">{s.guardrails.title}</p>
             <ul>
               {s.guardrails.list.map((item) => (
-                <li key={item}>{item}</li>
+                <li key={item.title}>
+                  <strong>{item.title}</strong> {item.text}
+                </li>
               ))}
             </ul>
           </aside>

@@ -756,6 +756,7 @@ a:hover { color: var(--terracotta-deep); }
 .guardrails ul { margin: 0; padding-left: 1.1em; }
 .guardrails li { padding: 3px 0; font-size: 1.05rem; line-height: 1.45; }
 .guardrails li::marker { color: var(--terracotta-deep); }
+.guardrails li strong { font-weight: 700; }
 
 /* Positioning map: two axes, four zones, brands as dots */
 .white-space .eyebrow { margin: 6px 0 12px; color: var(--muted); }

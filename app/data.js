@@ -73,7 +73,7 @@ export const projects = [
         heading: "Goals",
         list: [
           "For Reale: become the routine breakout-prone shoppers keep using when the founder is off-screen, with a lower-risk first purchase and demand beyond her following.",
-          "For Sephora: add a differentiated acne-care option for adult shoppers, with guided trial that grows the category and holds up on sales per door.",
+          "For Sephora: add a differentiated acne-care option for breakout-prone shoppers, teens included, with guided trial that grows the category and holds up on sales per door.",
           "For both: start small while supply catches up to demand, then decide on a national rollout using aggregate trial, repeat, returns and in-stock data.",
         ],
       },
@@ -141,7 +141,7 @@ export const projects = [
       audienceInsight: {
         heading: "Audience & insight",
         body: [
-          "Working audience: adults 18–29 with breakout-prone skin who shop prestige beauty, wear makeup, and have bounced between harsh clinical routines and gentler products that didn't help.",
+          "Primary: 18–29s with breakout-prone skin who shop prestige beauty. Secondary: teens 13–17 dealing with breakouts, often shopping with a parent.",
         ],
         quote: "I don't need a ten-step regimen. I need to know which one thing to start with — and that it won't wreck my skin.",
         note: "A research hypothesis, not a shopper quote. The plan tests it with 12 interviews and a 100-person concept test before the final message is chosen.",
@@ -164,7 +164,7 @@ export const projects = [
             },
           ],
         },
-        ageNote: "Why 18+ is stated up front: the plan deliberately targets adults only. See the guardrails in No. 08.",
+        ageNote: "Why teens get a guided start: acne often begins in the teen years. The plan welcomes teens with gentle starting points and parent-friendly guidance. See No. 08.",
       },
       // Full-bleed campaign moment: "headline" lines stack, "pillars" sit beneath.
       bigIdea: {
@@ -185,7 +185,7 @@ export const projects = [
         steps: [
           {
             title: "Confirm fit.",
-            text: "The educator confirms the shopper is 18+ and asks about current prescriptions (e.g., tretinoin), sensitivity, and what they already use.",
+            text: "The educator asks the shopper's age range so the starting point fits, then asks about current prescriptions (e.g., tretinoin), sensitivity, and what they already use.",
           },
           {
             title: "Choose your starting point.",
@@ -241,16 +241,36 @@ export const projects = [
           },
           {
             title: "Beyond the founder.",
-            text: "12 adult creators across six life contexts and Reale-funded educators in the activation stores teach one product at a time.",
+            text: "12 creators (all 18+), several sharing their teen-acne stories, across six life contexts and Reale-funded educators in the activation stores teach one product at a time.",
           },
         ],
         guardrails: {
-          title: "Adult-only guardrails",
+          title: "Age-appropriate guardrails",
           list: [
-            "Creators must be 18+, with audience data showing a majority-adult following.",
-            "No paid placements aimed at under-18 audiences; age targeting is set at 18+.",
-            "The Routine Check script includes an age confirmation.",
-            "All claims are reviewed for acids and acne-adjacent language before launch.",
+            {
+              title: "Need-based, not trend-based.",
+              text: "Messaging speaks to breakouts and routines, never to \u201cglow\u201d trends or using actives just because others do.",
+            },
+            {
+              title: "No one under 13 is targeted.",
+              text: "Paid media and creator content are not aimed at children.",
+            },
+            {
+              title: "Teens 13–17 get a guided start.",
+              text: "The Routine Check begins with the gentlest step that fits. Go Deep is recommended only after the Routine Check, with Dr. Mian's age guidance on the routine card.",
+            },
+            {
+              title: "Parents are welcome in the conversation.",
+              text: "The routine card includes a short note for a parent or guardian, plus when to see a doctor.",
+            },
+            {
+              title: "Creators are adults.",
+              text: "Paid creators are 18+, and several share their own teen-acne experience. This avoids paying minors while still speaking to teens.",
+            },
+            {
+              title: "Claims are reviewed",
+              text: "for acids and acne-adjacent language before launch.",
+            },
           ],
         },
       },
@@ -333,7 +353,7 @@ export const projects = [
             },
             {
               workstream: "Creators",
-              reale: "Contracts and pays; enforces 18+ guardrails",
+              reale: "Contracts and pays; enforces age-appropriate guardrails",
               sephora: "Approves Sephora mentions and links",
             },
             {
@@ -444,7 +464,7 @@ export const projects = [
               },
               {
                 title: "Creator carousel",
-                description: "Adult creators across six life contexts, one product at a time.",
+                description: "Creators across six life contexts, one product at a time.",
                 image: "",
               },
               {
