@@ -325,47 +325,48 @@ export const projects = [
           heading: "Proposed responsibilities",
           note: "Commercial terms would be set by the partners.",
           columns: ["Workstream", "Reale", "Sephora"],
+          // Each row: [workstream, Reale, Sephora]
           rows: [
-            {
-              workstream: "Routine Check script & training",
-              reale: "Writes it with Dr. Mian; funds training",
-              sephora: "Approves; fits it into existing consultations",
-            },
-            {
-              workstream: "In-store staffing",
-              reale: "Funds brand educators in the 8 activation doors",
-              sephora: "Advisors refer shoppers; manage store schedules",
-            },
-            {
-              workstream: "Trial sleeves",
-              reale: "Produces and funds 5,000 units",
-              sephora: "Distributes at the Routine Check",
-            },
-            {
-              workstream: "Fixtures",
-              reale: "Designs and funds",
-              sephora: "Approves placement and visual standards",
-            },
-            {
-              workstream: "Follow-up messages",
-              reale: "Writes copy; funds the program",
-              sephora: "Sends to opted-in Beauty Insiders (owns the data)",
-            },
-            {
-              workstream: "Creators",
-              reale: "Contracts and pays; enforces age-appropriate guardrails",
-              sephora: "Approves Sephora mentions and links",
-            },
-            {
-              workstream: "Inventory",
-              reale: "Commits stock for 16 doors + Sephora.com",
-              sephora: "Sets replenishment and in-stock targets",
-            },
-            {
-              workstream: "Measurement",
-              reale: "Defines the questions; shares DTC benchmarks",
-              sephora: "Shares aggregate results from Beauty Insider and store data",
-            },
+            [
+              "Routine Check script & training",
+              "Writes it with Dr. Mian; funds training",
+              "Approves; fits it into existing consultations",
+            ],
+            [
+              "In-store staffing",
+              "Funds brand educators in the 8 activation doors",
+              "Advisors refer shoppers; manage store schedules",
+            ],
+            [
+              "Trial sleeves",
+              "Produces and funds 5,000 units",
+              "Distributes at the Routine Check",
+            ],
+            [
+              "Fixtures",
+              "Designs and funds",
+              "Approves placement and visual standards",
+            ],
+            [
+              "Follow-up messages",
+              "Writes copy; funds the program",
+              "Sends to opted-in Beauty Insiders (owns the data)",
+            ],
+            [
+              "Creators",
+              "Contracts and pays; enforces age-appropriate guardrails",
+              "Approves Sephora mentions and links",
+            ],
+            [
+              "Inventory",
+              "Commits stock for 16 doors + Sephora.com",
+              "Sets replenishment and in-stock targets",
+            ],
+            [
+              "Measurement",
+              "Defines the questions; shares DTC benchmarks",
+              "Shares aggregate results from Beauty Insider and store data",
+            ],
           ],
         },
         conclusion:
@@ -374,15 +375,41 @@ export const projects = [
       pilotMeasurement: {
         heading: "Pilot & measurement",
         body: [
-          "Rather than a national rollout, the plan proposes a pilot: 6 weeks of preparation, 12 weeks of launch in 8 activation stores alongside 8 matched standard-launch stores, then a 90-day repeat readout.",
+          "Demand isn't the risk. Supply and durability are. Reale sold out on launch day and needed several restocks to work through its waitlist, and its first packaging issue (the Dew More pump) was fixed only after launch. A 16-door pilot tests whether the Routine Check creates repeat buyers without promising national inventory the brand can't yet support.",
+          "Design: 8 activation stores and 8 control stores, matched on skincare sales volume, region, store format and share of 18–29 Beauty Insiders. With 8 stores per group, the results show direction; they don't prove the effect. That's enough to decide whether to expand.",
         ],
-        proofHeading: "What would prove the strategy worked?",
-        proofs: [
-          { question: "Did Reale reach new buyers?", metric: "New-to-Reale purchasers and source recall" },
-          { question: "Did trial help?", metric: "30-day full-size buyers per qualified trial" },
-          { question: "Did Sephora grow the category?", metric: "Category sales change vs. matched stores" },
-          { question: "Did shoppers come back?", metric: "90-day repeat rate among first-time buyers" },
-        ],
+        scorecard: {
+          heading: "What would prove the strategy worked?",
+          columns: ["Question", "Primary measure", "Guardrail"],
+          // Each row: [question, primary measure, guardrail]
+          rows: [
+            [
+              "Did Reale reach new buyers?",
+              "New-to-Reale buyers (aggregate Beauty Insider data)",
+              "Share of buyers who were already Reale DTC customers",
+            ],
+            [
+              "Did trial help?",
+              "30-day full-size purchase rate among trial takers",
+              "Trial sleeves given out per educator hour",
+            ],
+            [
+              "Did Sephora grow the category?",
+              "Acne-care sales change vs. control stores",
+              "Sales lost by other acne brands (cannibalization)",
+            ],
+            [
+              "Did shoppers come back?",
+              "90-day repeat rate among first-time buyers",
+              "Return rate and irritation reports",
+            ],
+            [
+              "Can it run at retail?",
+              "Weekly sales per door vs. comparable new skincare brands",
+              "In-stock rate in activation stores",
+            ],
+          ],
+        },
       },
       // Grouped by channel. Each chapter's first item is shown large.
       // Put images in public/projects/<slug>/ and reference them like

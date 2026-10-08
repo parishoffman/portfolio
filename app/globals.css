@@ -1079,31 +1079,11 @@ a:hover { color: var(--terracotta-deep); }
 }
 .list-heading + .line-list { margin-top: 10px; }
 
-/* Pilot: the questions that would prove the strategy */
-.proof-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0 32px;
-  margin: 10px 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--ink);
-}
-.proof-grid li { padding: 18px 0 20px; border-bottom: 1px solid var(--line); }
-.proof-number { color: var(--terracotta-deep); }
-.proof-question {
-  margin: 4px 0 10px;
-  font-family: var(--display);
-  font-size: 1.45rem;
-  line-height: 1.25;
-}
-.proof-metric { display: flex; flex-direction: column; margin: 0; font-size: 1rem; line-height: 1.4; }
-.proof-metric .label { color: var(--muted); font-size: 0.68rem; }
 .list-heading + .line-list li:first-child { border-top-color: var(--ink); }
 .value-columns .line-list li:first-child { border-top: 0; }
-/* Proposed responsibilities: who does what */
-.responsibilities { margin-top: 40px; }
-.responsibilities table {
+/* Ruled data tables: proposed responsibilities, pilot scorecard */
+.data-table { margin-top: 40px; }
+.data-table table {
   width: 100%;
   margin-top: 10px;
   border-collapse: collapse;
@@ -1112,24 +1092,30 @@ a:hover { color: var(--terracotta-deep); }
   line-height: 1.4;
   text-align: left;
 }
-.responsibilities th,
-.responsibilities td { padding: 14px 16px 14px 0; vertical-align: top; border-bottom: 1px solid var(--line); }
-.responsibilities thead th { padding-top: 10px; padding-bottom: 10px; border-bottom-color: var(--ink); }
-.responsibilities thead th:not(.label) {
+.data-table th,
+.data-table td { padding: 14px 16px 14px 0; vertical-align: top; border-bottom: 1px solid var(--line); }
+.data-table thead th { padding-top: 10px; padding-bottom: 10px; border-bottom-color: var(--ink); }
+.data-table thead th:not(.label) {
   font-family: var(--sans);
   font-weight: 700;
   font-size: 0.9rem;
   letter-spacing: 0.02em;
   text-transform: uppercase;
 }
-.responsibilities thead .label { color: var(--muted); }
-.responsibilities tbody th { width: 28%; padding-top: 18px; font-weight: 400; }
-.responsibilities td { width: 36%; }
-.responsibilities tbody tr { transition: background-color 200ms ease; }
+.data-table thead .label { color: var(--muted); }
+.data-table tbody th { width: 28%; padding-top: 18px; font-weight: 400; }
+.data-table td { width: 36%; }
+.data-table tbody tr { transition: background-color 200ms ease; }
 @media (hover: hover) {
-  .responsibilities tbody tr:hover { background-color: var(--sage); }
+  .data-table tbody tr:hover { background-color: var(--sage); }
 }
-.responsibilities .note { margin: 10px 0 0; }
+.data-table .note { margin: 10px 0 0; }
+.data-table.has-questions tbody th {
+  padding-top: 12px;
+  font-family: var(--display);
+  font-size: 1.2rem;
+  line-height: 1.3;
+}
 
 .value-for-both .callout { margin-top: 40px; }
 .value-for-both .callout .display-headline { margin: 0; }
@@ -1240,17 +1226,17 @@ a:hover { color: var(--terracotta-deep); }
   .chapter-grid { grid-template-columns: 1fr; gap: 32px; }
 
   .value-columns { grid-template-columns: 1fr; }
-  .responsibilities thead { display: none; }
-  .responsibilities table,
-  .responsibilities tbody,
-  .responsibilities tr,
-  .responsibilities th,
-  .responsibilities td { display: block; width: auto; }
-  .responsibilities tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .responsibilities tbody th,
-  .responsibilities td { width: auto; padding: 0; border: 0; }
-  .responsibilities td { margin-top: 8px; }
-  .responsibilities td::before {
+  .data-table thead { display: none; }
+  .data-table table,
+  .data-table tbody,
+  .data-table tr,
+  .data-table th,
+  .data-table td { display: block; width: auto; }
+  .data-table tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .data-table tbody th,
+  .data-table td { width: auto; padding: 0; border: 0; }
+  .data-table td { margin-top: 8px; }
+  .data-table td::before {
     content: attr(data-label);
     display: block;
     font-family: var(--sans);
@@ -1259,7 +1245,6 @@ a:hover { color: var(--terracotta-deep); }
     letter-spacing: 0.02em;
     text-transform: uppercase;
   }
-  .proof-grid { grid-template-columns: 1fr; }
   .steps > li { grid-template-columns: 28px 1fr; gap: 8px; }
   .step-options li { grid-template-columns: 1fr; gap: 2px; }
   .step-options li > span[aria-hidden] { display: none; }

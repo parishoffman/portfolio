@@ -369,26 +369,30 @@ function Execution({ item, featured }) {
   );
 }
 
-// Who pays, who staffs, who owns the customer. Rows stack into blocks on phones.
-function Responsibilities({ table }) {
-  const [workstream, reale, sephora] = table.columns;
+// A ruled table: a heading, column names, and rows as arrays. The first cell of each
+// row is its label; "questions" sets those labels in serif instead of small caps.
+// Rows stack into blocks on phones.
+function DataTable({ table, questions }) {
+  const [first, ...rest] = table.columns;
   return (
-    <div className="responsibilities">
+    <div className={questions ? "data-table has-questions" : "data-table"}>
       <h3 className="list-heading">{table.heading}</h3>
       <table>
         <thead>
           <tr>
-            <th scope="col" className="label">{workstream}</th>
-            <th scope="col">{reale}</th>
-            <th scope="col">{sephora}</th>
+            <th scope="col" className="label">{first}</th>
+            {rest.map((column) => (
+              <th key={column} scope="col">{column}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-          {table.rows.map((row) => (
-            <tr key={row.workstream}>
-              <th scope="row" className="label">{row.workstream}</th>
-              <td data-label={reale}>{row.reale}</td>
-              <td data-label={sephora}>{row.sephora}</td>
+          {table.rows.map(([label, ...cells]) => (
+            <tr key={label}>
+              <th scope="row" className={questions ? undefined : "label"}>{label}</th>
+              {cells.map((cell, i) => (
+                <td key={i} data-label={rest[i]}>{cell}</td>
+              ))}
             </tr>
           ))}
         </tbody>
@@ -419,7 +423,7 @@ function ValueForBoth({ cs, number }) {
           ))}
         </div>
 
-        {s.responsibilities && <Responsibilities table={s.responsibilities} />}
+        {s.responsibilities && <DataTable table={s.responsibilities} />}
 
         {s.conclusion && (
           <div className="callout">
@@ -437,23 +441,7 @@ function PilotMeasurement({ cs, number }) {
   return (
     <>
       <Section section={s} number={number}>
-        {s.proofs && (
-          <>
-            <h3 className="list-heading">{s.proofHeading}</h3>
-            <ol className="proof-grid">
-              {s.proofs.map((proof, i) => (
-                <li key={proof.question}>
-                  <span className="label proof-number">Q{i + 1}</span>
-                  <p className="proof-question">{proof.question}</p>
-                  <p className="proof-metric">
-                    <span className="label">Measured by</span>
-                    {proof.metric}
-                  </p>
-                </li>
-              ))}
-            </ol>
-          </>
-        )}
+        {s.scorecard && <DataTable table={s.scorecard} questions />}
       </Section>
       <Results items={cs.results} heading={cs.resultsHeading} note={cs.resultsNote} />
     </>
