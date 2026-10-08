@@ -509,8 +509,26 @@ export const projects = [
         { value: "16", label: "Stores (8 activation + 8 control)" },
         { value: "12 wks", label: "Launch & learn period" },
         { value: "5,000", label: "Qualified trials planned" },
-        { value: "$150K", label: "Illustrative activation budget" },
+        { value: "$318K", label: "Illustrative pilot budget" },
       ],
+      // Placeholder unit costs. Keep the "illustrative" label if these change.
+      budget: {
+        heading: "Illustrative budget",
+        note: "Illustrative planning budget built from assumed unit costs; not a quote or forecast.",
+        columns: ["Line item", "Assumption", "Cost (USD)"],
+        // Each row: [line item, assumption, cost]
+        rows: [
+          ["Creators (12)", "~$8K each for a short content package", "$96,000"],
+          ["Brand educators", "8 doors × 12 weeks × 20 hrs/week × $30/hr", "$57,600"],
+          ["Paid social & retail media", "Drive traffic to the Routine Check and Sephora.com", "$50,000"],
+          ["Fixtures", "8 doors × ~$5K, design and install", "$40,000"],
+          ["Trial sleeves", "5,000 × ~$4 for two minis, sleeve and card", "$20,000"],
+          ["Training & routine-card content", "Dr. Mian's time, script, printed cards", "$15,000"],
+          ["Follow-up program", "Message copy and setup", "$10,000"],
+          ["Contingency", "~10%", "$28,900"],
+        ],
+        total: ["Total", "", "~$317,500"],
+      },
       resultsNote:
         "Planning assumptions, not forecasts. No ROI or campaign results are claimed.",
       // Closing: what scales if the pilot works, then the ask.

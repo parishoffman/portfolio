@@ -372,10 +372,12 @@ function Execution({ item, featured }) {
 // A ruled table: a heading, column names, and rows as arrays. The first cell of each
 // row is its label; "questions" sets those labels in serif instead of small caps.
 // Rows stack into blocks on phones.
-function DataTable({ table, questions }) {
+// "numeric" right-aligns the last column; an optional "total" row closes the table.
+function DataTable({ table, questions, numeric }) {
   const [first, ...rest] = table.columns;
+  const classes = ["data-table", questions && "has-questions", numeric && "is-numeric"].filter(Boolean).join(" ");
   return (
-    <div className={questions ? "data-table has-questions" : "data-table"}>
+    <div className={classes}>
       <h3 className="list-heading">{table.heading}</h3>
       <table>
         <thead>
@@ -396,6 +398,16 @@ function DataTable({ table, questions }) {
             </tr>
           ))}
         </tbody>
+        {table.total && (
+          <tfoot>
+            <tr>
+              <th scope="row" className="label">{table.total[0]}</th>
+              {table.total.slice(1).map((cell, i) => (
+                <td key={i} data-label={cell ? rest[i] : undefined}>{cell}</td>
+              ))}
+            </tr>
+          </tfoot>
+        )}
       </table>
       {table.note && <p className="note">{table.note}</p>}
     </div>
@@ -444,6 +456,11 @@ function PilotMeasurement({ cs, number }) {
         {s.scorecard && <DataTable table={s.scorecard} questions />}
       </Section>
       <Results items={cs.results} heading={cs.resultsHeading} note={cs.resultsNote} />
+      {cs.budget && (
+        <section className="doc-block">
+          <DataTable table={cs.budget} numeric />
+        </section>
+      )}
     </>
   );
 }
