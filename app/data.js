@@ -264,10 +264,11 @@ export const projects = [
         tileLabel: "Reale Actives × Sephora",
         signoff: "Your life. Your Reale routine.",
         situations: [
-          { headline: ["Full glam.", "Early alarm."], need: "Remove makeup", startingPoint: "Pore Power" },
-          { headline: ["Red-eye.", "8AM meeting."], need: "Support hydration", startingPoint: "Dew More" },
+          { headline: ["Full glam.", "Early alarm."], need: "Take it all off", startingPoint: "Get Bare" },
+          { headline: ["Gym,", "then brunch."], need: "Clear out congestion", startingPoint: "Pore Power" },
+          { headline: ["Red-eye.", "8AM meeting."], need: "Support a stressed barrier", startingPoint: "Dew More" },
+          { headline: ["Ready for", "an active."], need: "Start one, with guidance", startingPoint: "Go Deep + Routine Check" },
           { headline: ["Long day.", "Short routine."], need: "Keep it simple", startingPoint: "One starting point" },
-          { headline: ["New active.", "Sensitive skin."], need: "Explore an active", startingPoint: "Advisor guidance" },
         ],
       },
       valueForBoth: {
@@ -363,12 +364,22 @@ export const projects = [
             items: [
               {
                 title: "Full glam. Early alarm.",
-                description: "Feed art direction for the makeup-removal moment.",
+                description: "Feed art direction for the take-it-all-off moment, starting with Get Bare.",
                 image: "/projects/reale-sephora/creator-social.jpg",
               },
               {
+                title: "Gym, then brunch.",
+                description: "Life moment: clear out congestion with Pore Power.",
+                image: "",
+              },
+              {
                 title: "Red-eye. 8AM meeting.",
-                description: "Life moment: support hydration with Dew More.",
+                description: "Life moment: support a stressed barrier with Dew More.",
+                image: "",
+              },
+              {
+                title: "Ready for an active.",
+                description: "Life moment: start one, with guidance, with Go Deep and the Routine Check.",
                 image: "",
               },
               {
