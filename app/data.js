@@ -64,16 +64,17 @@ export const projects = [
       challenge: {
         heading: "The challenge",
         body: [
-          "Reale has a founder who can bring people to a launch. Sephora already gives shoppers reasons to visit. But celebrity attention alone doesn't earn a place on the shelf. The partnership has to prove its value to both businesses.",
-          "The business question: can guided trial create customers who come back?",
+          "Reale Actives proved demand on day one. The direct-to-consumer launch reportedly crossed $1M in under five minutes, sold out within 10 hours, and still had a 57,000-person waitlist after early restocks.",
+          "What it hasn't proved yet is durability. Founder-led beauty has a mixed record at retail, and Sephora has dropped celebrity lines before. A shelf at Sephora has to be earned by shoppers who come back after the launch moment fades.",
+          "The business question: can guided trial turn breakout-prone shoppers into repeat Reale customers, in a way that grows Sephora's acne-care shelf instead of just shifting sales between brands?",
         ],
       },
       goals: {
         heading: "Goals",
         list: [
-          "For Reale: become a routine shoppers choose even when the founder is off-screen, with demand beyond her following and a lower-risk first purchase.",
-          "For Sephora: turn creator attention into a useful skincare experience and grow category sales, not just shift purchases from existing brands.",
-          "For both: learn from aggregate trial, repeat and returns data before committing to a national rollout.",
+          "For Reale: become the routine breakout-prone shoppers keep using when the founder is off-screen, with a lower-risk first purchase and demand beyond her following.",
+          "For Sephora: add a differentiated acne-care option for adult shoppers, with guided trial that grows the category and holds up on sales per door.",
+          "For both: start small while supply catches up to demand, then decide on a national rollout using aggregate trial, repeat, returns and in-stock data.",
         ],
       },
       sephoraCriteria: {
@@ -112,21 +113,29 @@ export const projects = [
           href: "https://www.linkedin.com/pulse/how-sephora-our-brand-partners-work-together-carolyn-bojanowski-xhd9c/",
         },
       },
-      // A perceptual map: "position" is where each brand sits on the axis, 0–100.
+      // A two-axis positioning map. Zones fill the grid row by row:
+      // top-left, top-right, bottom-left, bottom-right.
       whiteSpace: {
         eyebrow: "Category opportunity",
         heading: "The white space",
-        intro:
-          "Reale does not need to out-clinical the clinical brands or out-lifestyle the lifestyle brands. The opportunity sits between the two.",
-        axis: { left: "Clinical / functional", right: "Lifestyle / cultural" },
-        brands: [
-          { name: "The Ordinary", position: 8 },
-          { name: "Paula's Choice", position: 29 },
-          { name: "Reale Actives", position: 50, highlight: true, annotation: "active skincare made easier to live with" },
-          { name: "Rhode", position: 71 },
-          { name: "Summer Fridays", position: 92 },
+        body: [
+          "Acne care at Sephora tends to feel clinical: ingredient-forward, medical packaging, a regimen to follow. Lifestyle skincare feels good to use, but rarely speaks to breakouts.",
+          "Reale sits in the gap: acne-focused care that doesn't feel clinical. It has four steps, a dermatologist behind the formulas, and packaging designed to be left out on the counter.",
         ],
-        opportunity: { label: "Opportunity", lines: ["Clinical credibility", "×", "lifestyle ease"] },
+        map: {
+          title: "Reale owns acne care that doesn't feel clinical",
+          x: { low: "Clinical feel", high: "Lifestyle feel" },
+          y: { low: "General", high: "Acne-focused" },
+          zones: [
+            { title: "Clinical acne care", text: "Effective, but feels like a regimen" },
+            { title: "Reale Actives: the gap", text: "Acne-focused, fun to use, derm-backed", highlight: true },
+            { title: "Ingredient-first basics", text: "Affordable actives, DIY routines" },
+            { title: "Lifestyle skincare", text: "Feels good, rarely about breakouts" },
+          ],
+          // Only brands verified on Sephora's U.S. shelf. x and y run 0–100 from the bottom-left,
+          // e.g. { name: "Brand", x: 20, y: 80 }
+          brands: [],
+        },
         note: "Illustrative positioning based on how each brand presents itself, not shopper research.",
       },
       audienceInsight: {

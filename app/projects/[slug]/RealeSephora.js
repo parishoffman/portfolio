@@ -48,44 +48,49 @@ function SephoraCriteria({ cs, number }) {
 
 function WhiteSpace({ cs, number }) {
   const s = cs.whiteSpace;
+  const map = s.map;
   return (
     <section className="doc-section white-space">
       <span className="label">No. {pad(number)}</span>
       <div>
         {s.eyebrow && <p className="label eyebrow">{s.eyebrow}</p>}
         <h2>{s.heading}</h2>
-        {s.intro && <p className="lead">{s.intro}</p>}
+        {s.body?.map((paragraph, i) => (
+          <p key={i}>{paragraph}</p>
+        ))}
       </div>
 
-      <figure className="position-map">
-        <div className="axis-labels label">
-          <span className="axis-start">{s.axis.left}</span>
-          <span className="axis-end">{s.axis.right}</span>
-        </div>
-
-        <ol className="axis">
-          {s.brands.map((brand) => (
-            <li
-              key={brand.name}
-              className={brand.highlight ? "axis-point is-highlight" : "axis-point"}
-              style={{ "--pos": `${brand.position}%` }}
-            >
-              <span className="axis-name">{brand.name}</span>
-              {brand.annotation && <span className="script axis-annotation">↑ {brand.annotation}</span>}
-            </li>
-          ))}
-        </ol>
-
-        {s.opportunity && (
-          <figcaption className="opportunity">
-            <span className="label">{s.opportunity.label}</span>
-            <p>
-              {s.opportunity.lines.map((line, i) => (
-                <span key={i}>{line}</span>
+      <figure className="quadrant-map">
+        <figcaption className="quadrant-title">{map.title}</figcaption>
+        <div className="quadrant-chart">
+          <div className="quadrant-y label">
+            <span>{map.y.high}</span>
+            <span>{map.y.low}</span>
+          </div>
+          <div className="quadrant-plot">
+            <ul className="quadrant-zones">
+              {map.zones.map((zone) => (
+                <li key={zone.title} className={zone.highlight ? "is-highlight" : undefined}>
+                  <strong>{zone.title}</strong>
+                  <span>{zone.text}</span>
+                </li>
               ))}
-            </p>
-          </figcaption>
-        )}
+            </ul>
+            {map.brands?.map((brand) => (
+              <span
+                key={brand.name}
+                className="quadrant-dot"
+                style={{ left: `${brand.x}%`, bottom: `${brand.y}%` }}
+              >
+                <span>{brand.name}</span>
+              </span>
+            ))}
+          </div>
+          <div className="quadrant-x label">
+            <span>{map.x.low}</span>
+            <span>{map.x.high}</span>
+          </div>
+        </div>
       </figure>
 
       {s.note && <p className="note white-space-note">{s.note}</p>}

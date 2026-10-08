@@ -715,86 +715,104 @@ a:hover { color: var(--terracotta-deep); }
 
 .source-link { display: inline-block; margin-top: 20px; color: var(--muted); }
 
-/* Positioning map: brands plotted along one axis */
+/* Positioning map: two axes, four zones, brands as dots */
 .white-space .eyebrow { margin: 6px 0 12px; color: var(--muted); }
-.white-space .lead { max-width: 640px; margin: 0; }
+.white-space p { max-width: 640px; }
 
-.position-map {
+.quadrant-map {
   grid-column: 1 / -1;
-  margin: 24px 0 0;
-  padding: clamp(28px, 5vw, 56px);
+  margin: 16px 0 0;
+  padding: clamp(24px, 5vw, 48px);
   background-color: var(--sand);
   background-image: var(--grain);
 }
-.axis-labels { display: flex; justify-content: space-between; gap: 16px; }
-.axis-start::before { content: "← "; }
-.axis-end::after { content: " →"; }
-
-.axis {
-  position: relative;
-  height: 150px;
-  margin: 36px 0 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--ink);
+.quadrant-title {
+  margin-bottom: 28px;
+  font-family: var(--display);
+  font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+  line-height: 1.2;
 }
-.axis-point {
-  position: absolute;
-  top: 0;
-  left: var(--pos);
-  transform: translateX(-50%);
+.quadrant-chart {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: 1fr auto;
+  gap: 10px 14px;
+}
+.quadrant-y {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding-top: 20px;
-  text-align: center;
+  justify-content: space-between;
+  max-width: 7em;
+  text-align: right;
 }
-.axis-point::before {
+.quadrant-x { grid-column: 2; display: flex; justify-content: space-between; gap: 16px; }
+
+.quadrant-plot {
+  position: relative;
+  border-left: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+/* Arrowheads on both axes */
+.quadrant-plot::before,
+.quadrant-plot::after {
   content: "";
   position: absolute;
-  top: -5px;
-  left: 50%;
-  width: 9px;
-  height: 9px;
-  margin-left: -4.5px;
-  border-radius: 50%;
-  background: var(--ink);
+  width: 8px;
+  height: 8px;
+  border: solid var(--ink);
+  border-width: 1px 1px 0 0;
 }
-.axis-name { font-size: 1rem; white-space: nowrap; }
+.quadrant-plot::before { top: -1px; left: -5px; transform: rotate(-45deg); }
+.quadrant-plot::after { right: -1px; bottom: -5px; transform: rotate(45deg); }
 
-.axis-point.is-highlight { padding-top: 26px; }
-.axis-point.is-highlight::before {
-  top: -11px;
-  width: 22px;
-  height: 22px;
-  margin-left: -11px;
-  background: var(--sage-deep);
-  border: 1px solid var(--ink);
+.quadrant-zones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background:
+    linear-gradient(var(--line), var(--line)) center / 1px 100% no-repeat,
+    linear-gradient(var(--line), var(--line)) center / 100% 1px no-repeat;
 }
-.is-highlight .axis-name {
-  font-family: var(--mono);
-  font-weight: 700;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-}
-.axis-annotation {
-  width: 240px;
-  margin-top: 6px;
-  font-size: 1.5rem;
-  line-height: 1.1;
-  color: var(--terracotta-deep);
-}
-
-.opportunity { text-align: center; }
-.opportunity p {
+.quadrant-zones li {
   display: flex;
   flex-direction: column;
-  margin: 10px 0 0;
-  font-family: var(--display);
-  font-style: italic;
-  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
-  line-height: 1.2;
+  justify-content: center;
+  gap: 4px;
+  min-height: clamp(150px, 22vw, 200px);
+  margin: 12px;
+  padding: 16px;
+  text-align: center;
+}
+.quadrant-zones strong { font-family: var(--sans); font-weight: 700; font-size: 1rem; line-height: 1.25; }
+.quadrant-zones span { color: var(--muted); font-size: 1rem; line-height: 1.35; }
+/* Labels sit toward the outer edges, leaving the middle of each zone for brand dots */
+.quadrant-zones li:nth-child(-n + 2) { justify-content: flex-start; }
+.quadrant-zones li:nth-child(n + 3) { justify-content: flex-end; }
+.quadrant-zones .is-highlight {
+  justify-content: center !important;
+  background-color: var(--sage-deep);
+  border: 1px solid var(--ink);
+}
+.quadrant-zones .is-highlight span { color: var(--ink); }
+
+.quadrant-dot {
+  position: absolute;
+  transform: translate(-50%, 50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+.quadrant-dot span { padding: 0 4px; background-color: var(--sand); }
+.quadrant-dot::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--ink);
 }
 .white-space-note { grid-column: 1 / -1; margin: 0; }
 
@@ -1100,33 +1118,19 @@ a:hover { color: var(--terracotta-deep); }
   .criteria-row { grid-template-columns: 1fr; gap: 4px; }
   .criteria-row dt { padding-top: 0; }
 
-  /* The map turns vertical: clinical at the top, lifestyle at the bottom */
-  .position-map { margin-top: 16px; }
-  .position-map { display: flex; flex-direction: column; }
-  .axis-labels { display: contents; }
-  .axis-start::before { content: "↑ "; }
-  .axis-end { order: 1; }
-  .axis-end::before { content: "↓ "; }
-  .axis-end::after { content: none; }
-  .opportunity { order: 2; margin-top: 32px; }
-  .axis {
-    height: auto;
-    margin: 16px 0 16px 6px;
-    border-top: 0;
-    border-left: 1px solid var(--ink);
+  .quadrant-map { padding: 20px 16px; }
+  /* Sideways axis label, reading bottom to top, so the zones get the width */
+  .quadrant-y {
+    flex-direction: row-reverse;
+    max-width: none;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 0.66rem;
   }
-  .axis-point,
-  .axis-point.is-highlight {
-    position: relative;
-    left: 0;
-    transform: none;
-    align-items: flex-start;
-    padding: 12px 0 12px 24px;
-    text-align: left;
-  }
-  .axis-point::before { top: 50%; left: 0; margin: -4.5px 0 0 -5px; }
-  .axis-point.is-highlight::before { top: 22px; margin: -11px 0 0 -11.5px; }
-  .axis-annotation { width: auto; }
+  .quadrant-chart { gap: 8px; }
+  .quadrant-zones li { margin: 4px; padding: 8px 4px; min-height: 150px; }
+  .quadrant-zones strong { font-size: 0.85rem; }
+  .quadrant-zones span { font-size: 0.85rem; }
 
   .band { margin-inline: -18px; padding-inline: 18px; }
   .big-idea { min-height: 0; }
