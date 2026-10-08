@@ -715,6 +715,31 @@ a:hover { color: var(--terracotta-deep); }
 
 .source-link { display: inline-block; margin-top: 20px; color: var(--muted); }
 
+/* How it works: numbered steps, with starting points as need → product rows */
+.steps { margin: 16px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--ink); }
+.steps > li {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 12px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.steps > li > .label { padding-top: 4px; color: var(--terracotta-deep); }
+.steps strong { font-weight: 700; }
+.step-options { margin: 12px 0 4px; padding: 0; list-style: none; }
+.step-options li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.2fr);
+  gap: 12px;
+  padding: 8px 12px;
+  background-color: var(--sage);
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.step-options li + li { margin-top: 4px; }
+.step-options li > span:first-child { font-family: var(--display); font-style: italic; }
+.step-options strong { color: var(--terracotta-deep); font-weight: 600; }
+
 /* Positioning map: two axes, four zones, brands as dots */
 .white-space .eyebrow { margin: 6px 0 12px; color: var(--muted); }
 .white-space p { max-width: 640px; }
@@ -874,7 +899,9 @@ a:hover { color: var(--terracotta-deep); }
   font-size: clamp(1.3rem, 2.4vw, 1.6rem);
   line-height: 1.2;
 }
-.big-idea-body { max-width: 560px; margin: 40px 0 auto; font-size: 1rem; color: var(--muted); }
+.big-idea-body { max-width: 560px; margin: 40px 0 0; font-size: 1rem; color: var(--muted); }
+.big-idea-body + .big-idea-body { margin-top: 12px; }
+.big-idea-body:last-child { margin-bottom: auto; }
 
 /* Campaign system: the same ad template repeated across life moments */
 .system { margin-top: 48px; }
@@ -1069,6 +1096,18 @@ a:hover { color: var(--terracotta-deep); }
 }
 .test-next-list .label { color: var(--terracotta-deep); }
 
+/* Audience: the evidence behind advisor-led guidance */
+.evidence .stats { margin-top: 8px; }
+.evidence-label { font-size: 1rem; line-height: 1.4; }
+.evidence-conclusion {
+  margin: 24px 0 0;
+  font-family: var(--display);
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  line-height: 1.3;
+}
+.evidence .source-link { display: block; margin-top: 12px; }
+.evidence .source-link + .source-link { margin-top: 4px; }
+
 /* ---------- Mobile ---------- */
 
 @media (max-width: 860px) {
@@ -1141,6 +1180,9 @@ a:hover { color: var(--terracotta-deep); }
 
   .value-columns { grid-template-columns: 1fr; }
   .proof-grid { grid-template-columns: 1fr; }
+  .steps > li { grid-template-columns: 28px 1fr; gap: 8px; }
+  .step-options li { grid-template-columns: 1fr; gap: 2px; }
+  .step-options li > span[aria-hidden] { display: none; }
 }
 
 @media (max-width: 600px) {

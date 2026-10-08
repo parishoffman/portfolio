@@ -98,7 +98,35 @@ function WhiteSpace({ cs, number }) {
   );
 }
 
-const AudienceInsight = ({ cs, number }) => <Section section={cs.audienceInsight} number={number} />;
+function AudienceInsight({ cs, number }) {
+  const s = cs.audienceInsight;
+  const e = s.evidence;
+  return (
+    <Section section={s} number={number}>
+      {e && (
+        <div className="evidence">
+          <h3 className="list-heading">{e.heading}</h3>
+          {e.intro && <p>{e.intro}</p>}
+          <div className="stats">
+            {e.stats.map((stat) => (
+              <div key={stat.value} className="stat">
+                <span className="stat-value">{stat.value}</span>
+                <span className="evidence-label">{stat.label}</span>
+              </div>
+            ))}
+          </div>
+          {e.conclusion && <p className="evidence-conclusion">{e.conclusion}</p>}
+          {e.sources?.map((source) => (
+            <a key={source.href} className="label source-link" href={source.href} target="_blank" rel="noopener noreferrer">
+              {source.label}
+            </a>
+          ))}
+        </div>
+      )}
+      {s.ageNote && <p className="note">{s.ageNote}</p>}
+    </Section>
+  );
+}
 
 // The break from the report: research is done, the campaign starts here.
 function BigIdea({ cs, number }) {
@@ -132,7 +160,40 @@ function BigIdea({ cs, number }) {
   );
 }
 
-const HowItWorks = ({ cs, number }) => <Section section={cs.howItWorks} number={number} />;
+function HowItWorks({ cs, number }) {
+  const s = cs.howItWorks;
+  return (
+    <section className="doc-section how-it-works">
+      <span className="label">No. {pad(number)}</span>
+      <div>
+        <h2>{s.heading}</h2>
+        <ol className="steps">
+          {s.steps.map((step, i) => (
+            <li key={step.title}>
+              <span className="label">{pad(i + 1)}</span>
+              <div>
+                <strong>{step.title}</strong> {step.text}
+                {step.options && (
+                  <ul className="step-options">
+                    {step.options.map((option) => (
+                      <li key={option.product}>
+                        <span>{option.need}</span>
+                        <span aria-hidden="true">→</span>
+                        <span>
+                          <strong>{option.product}</strong> {option.detail}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
 const LaunchPlan = ({ cs, number }) => <Section section={cs.launchPlan} number={number} />;
 
 // The bridge from strategy to execution: one template, repeated across life moments.

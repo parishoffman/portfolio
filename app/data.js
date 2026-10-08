@@ -141,10 +141,30 @@ export const projects = [
       audienceInsight: {
         heading: "Audience & insight",
         body: [
-          "Working audience: adults 18–29 who wear makeup, shop prestige beauty, and feel unsure about adding actives to their routine.",
+          "Working audience: adults 18–29 with breakout-prone skin who shop prestige beauty, wear makeup, and have bounced between harsh clinical routines and gentler products that didn't help.",
         ],
-        quote: "I can keep plans in my calendar. I need skincare I can actually keep up with.",
-        note: "A research hypothesis, not a shopper quote. The plan validates it with 12 interviews and a 100-person concept test before choosing the final message.",
+        quote: "I don't need a ten-step regimen. I need to know which one thing to start with — and that it won't wreck my skin.",
+        note: "A research hypothesis, not a shopper quote. The plan tests it with 12 interviews and a 100-person concept test before the final message is chosen.",
+        evidence: {
+          heading: "Why guidance matters",
+          intro: "In a published study of people with acne:",
+          stats: [
+            { value: "95%", label: "used social media for skin information" },
+            { value: "97%", label: "would trust a dermatologist over an influencer when the two disagreed" },
+          ],
+          conclusion: "Founder attention gets shoppers in the door; expert guidance is what keeps them.",
+          sources: [
+            {
+              label: "Study ↗ Bal et al., Cureus (2025): 100 acne patients at a dermatology clinic in Turkey",
+              href: "https://pmc.ncbi.nlm.nih.gov/articles/PMC12068905/",
+            },
+            {
+              label: "Via ↗ Campaign US, August 2026",
+              href: "https://campaignlive.com/article/celebrity-owned-skincare-isnt-groundbreaking-heres-reale-actives-vying-space-shelf/1966500",
+            },
+          ],
+        },
+        ageNote: "Why 18+ is stated up front: the plan deliberately targets adults only. See the guardrails in No. 08.",
       },
       // Full-bleed campaign moment: "headline" lines stack, "pillars" sit beneath.
       bigIdea: {
@@ -156,17 +176,42 @@ export const projects = [
           { title: "Sephora", text: "turns it into guidance + trial" },
         ],
         body: [
-          "The memorable behavior is the Reale Routine Check: a short advisor conversation that ends with one starting point, a take-home routine card and a trial invitation.",
+          "The Reale Routine Check is a short conversation built into Sephora's existing in-store skincare consultation, not a new service advisors have to learn from scratch. It ends with one starting point, a take-home routine card, and a trial invitation.",
+          "The script and training are co-developed with Dr. Kiran Mian, Reale's director of clinical innovation, and delivered by Reale-funded educators alongside Sephora advisors.",
         ],
       },
       howItWorks: {
         heading: "How it works",
-        list: [
-          "Choose your goal: makeup removal, hydration or ingredient education.",
-          "Keep what works: shoppers keep products they already use and start with one relevant step.",
-          "Save your card: a routine card records the product's role and directions.",
-          "Try it: the Reale Starting Point, a proposed free trial sleeve, gives seven days to get to know the routine, with no promise of acne results.",
-          "Follow up: opt-in messages at day 0, 3, 7, 30 and 60/90 focus on fit and usage, not a hard sell.",
+        steps: [
+          {
+            title: "Confirm fit.",
+            text: "The educator confirms the shopper is 18+ and asks about current prescriptions (e.g., tretinoin), sensitivity, and what they already use.",
+          },
+          {
+            title: "Choose your starting point.",
+            options: [
+              { need: "Wear long-wear makeup", product: "Get Bare", detail: "makeup-melting cleansing balm" },
+              { need: "Congested or breakout-prone", product: "Pore Power", detail: "LHA + BHA exfoliating gel cleanser" },
+              { need: "Barrier feels tight or irritated", product: "Dew More", detail: "barrier-strengthening moisturizer" },
+              { need: "Ready for a leave-on active, with guidance", product: "Go Deep", detail: "mandelic acid serum" },
+            ],
+          },
+          {
+            title: "Keep what works.",
+            text: "Shoppers keep their current products and add one step.",
+          },
+          {
+            title: "Save your card.",
+            text: "The routine card records the product's role, how often to use it, and what to pause if irritation happens.",
+          },
+          {
+            title: "Try it.",
+            text: "The Reale Starting Point trial gives seven days with the chosen product plus Dew More. It makes no promise of acne results.",
+          },
+          {
+            title: "Follow up.",
+            text: "Opt-in Beauty Insider messages at day 3, 7, 30 and 60/90, sent by Sephora and focused on fit and usage, not a hard sell.",
+          },
         ],
       },
       launchPlan: {
