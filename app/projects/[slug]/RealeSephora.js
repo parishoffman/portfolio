@@ -160,6 +160,46 @@ function BigIdea({ cs, number }) {
   );
 }
 
+// Numbered steps. A step can carry starting-point "options" (need → product)
+// or labelled "choices" (e.g. Option A / Option B).
+function Steps({ steps }) {
+  return (
+    <ol className="steps">
+      {steps.map((step, i) => (
+        <li key={step.title}>
+          <span className="label">{pad(i + 1)}</span>
+          <div>
+            <strong>{step.title}</strong> {step.text}
+            {step.options && (
+              <ul className="step-options">
+                {step.options.map((option) => (
+                  <li key={option.product}>
+                    <span>{option.need}</span>
+                    <span aria-hidden="true">→</span>
+                    <span>
+                      <strong>{option.product}</strong> {option.detail}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {step.choices && (
+              <ul className="step-options step-choices">
+                {step.choices.map((choice) => (
+                  <li key={choice.label}>
+                    <span className="label">{choice.label}</span>
+                    <span>{choice.text}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
 function HowItWorks({ cs, number }) {
   const s = cs.howItWorks;
   return (
@@ -167,34 +207,40 @@ function HowItWorks({ cs, number }) {
       <span className="label">No. {pad(number)}</span>
       <div>
         <h2>{s.heading}</h2>
-        <ol className="steps">
-          {s.steps.map((step, i) => (
-            <li key={step.title}>
-              <span className="label">{pad(i + 1)}</span>
-              <div>
-                <strong>{step.title}</strong> {step.text}
-                {step.options && (
-                  <ul className="step-options">
-                    {step.options.map((option) => (
-                      <li key={option.product}>
-                        <span>{option.need}</span>
-                        <span aria-hidden="true">→</span>
-                        <span>
-                          <strong>{option.product}</strong> {option.detail}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </li>
-          ))}
-        </ol>
+        <Steps steps={s.steps} />
       </div>
     </section>
   );
 }
-const LaunchPlan = ({ cs, number }) => <Section section={cs.launchPlan} number={number} />;
+function LaunchPlan({ cs, number }) {
+  const s = cs.launchPlan;
+  return (
+    <section className="doc-section launch-plan">
+      <span className="label">No. {pad(number)}</span>
+      <div>
+        <h2>{s.heading}</h2>
+        {s.timing && (
+          <p className="launch-timing">
+            <span className="label">Timing</span>
+            {s.timing}
+          </p>
+        )}
+        <Steps steps={s.steps} />
+
+        {s.guardrails && (
+          <aside id="guardrails" className="guardrails">
+            <p className="label">{s.guardrails.title}</p>
+            <ul>
+              {s.guardrails.list.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </aside>
+        )}
+      </div>
+    </section>
+  );
+}
 
 // The bridge from strategy to execution: one template, repeated across life moments.
 function CampaignSystem({ cs, number }) {

@@ -216,12 +216,43 @@ export const projects = [
       },
       launchPlan: {
         heading: "Launch plan",
-        list: [
-          "Tease (T–14 to T–1): the founder shows a routine card beside a Sephora bag. \u201cMy routine has a new address.\u201d",
-          "Reveal (launch day): a proposed Sephora Drop Shop LIVE with founder context, dermatologist product education and an advisor-led Routine Check.",
-          "Shop (after the reveal): viewers are directed to the Starting Point trial and the in-store experience.",
-          "Beyond the founder: 12 adult creators across six life contexts and 6 Beauty Advisors deliver repeatable, one-product-at-a-time education.",
+        timing: "A January pilot, built around the New Year \u201cskin reset\u201d moment and away from the busy Holiday floor.",
+        steps: [
+          {
+            title: "Tease (T–14 to T–1).",
+            text: "The founder shows a routine card next to a Sephora bag: \u201cMy routine has a new address.\u201d",
+          },
+          {
+            title: "Reveal (launch day).",
+            choices: [
+              {
+                label: "Option A",
+                text: "A Sephora Drop Shop LIVE on TikTok Shop with the founder, Dr. Mian and a Sephora educator running a live Routine Check.",
+              },
+              {
+                label: "Option B",
+                text: "If Drop Shop isn't available: a founder and dermatologist LIVE on Reale's and Sephora's own channels.",
+              },
+            ],
+          },
+          {
+            title: "Shop.",
+            text: "After any TikTok Shop exclusive window ends, Reale goes live on Sephora.com and in the 8 activation stores, where the Routine Check happens.",
+          },
+          {
+            title: "Beyond the founder.",
+            text: "12 adult creators across six life contexts and Reale-funded educators in the activation stores teach one product at a time.",
+          },
         ],
+        guardrails: {
+          title: "Adult-only guardrails",
+          list: [
+            "Creators must be 18+, with audience data showing a majority-adult following.",
+            "No paid placements aimed at under-18 audiences; age targeting is set at 18+.",
+            "The Routine Check script includes an age confirmation.",
+            "All claims are reviewed for acids and acne-adjacent language before launch.",
+          ],
+        },
       },
       // One template, repeated: a life moment, the need it creates, one starting point.
       campaignSystem: {

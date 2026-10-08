@@ -740,6 +740,23 @@ a:hover { color: var(--terracotta-deep); }
 .step-options li > span:first-child { font-family: var(--display); font-style: italic; }
 .step-options strong { color: var(--terracotta-deep); font-weight: 600; }
 
+.step-choices li { grid-template-columns: 90px 1fr; }
+.step-choices li > span.label:first-child { padding-top: 3px; color: var(--ink); font-family: var(--mono); font-style: normal; font-weight: 700; }
+
+/* Launch plan: timing line + adult-only guardrails callout */
+.launch-timing { display: flex; flex-direction: column; margin: 0 0 20px; }
+.launch-timing .label { color: var(--muted); }
+.guardrails {
+  margin-top: 32px;
+  padding: 20px 24px;
+  border: 1px solid var(--ink);
+  background-color: var(--paper);
+}
+.guardrails .label { margin: 0 0 8px; font-weight: 700; }
+.guardrails ul { margin: 0; padding-left: 1.1em; }
+.guardrails li { padding: 3px 0; font-size: 1.05rem; line-height: 1.45; }
+.guardrails li::marker { color: var(--terracotta-deep); }
+
 /* Positioning map: two axes, four zones, brands as dots */
 .white-space .eyebrow { margin: 6px 0 12px; color: var(--muted); }
 .white-space p { max-width: 640px; }
@@ -1183,6 +1200,7 @@ a:hover { color: var(--terracotta-deep); }
   .steps > li { grid-template-columns: 28px 1fr; gap: 8px; }
   .step-options li { grid-template-columns: 1fr; gap: 2px; }
   .step-options li > span[aria-hidden] { display: none; }
+  .step-choices li { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
