@@ -263,6 +263,14 @@ export const projects = [
         formula: ["Life moment", "Need", "Starting point"],
         tileLabel: "Reale Actives × Sephora",
         signoff: "Your life. Your Reale routine.",
+        // A blank card after the situations: the framework itself, ready for the next moment.
+        template: {
+          label: "The template",
+          count: "06 / \u221e",
+          headline: ["Life", "moment."],
+          need: "Need",
+          startingPoint: "Starting point",
+        },
         situations: [
           { headline: ["Full glam.", "Early alarm."], need: "Take it all off", startingPoint: "Get Bare" },
           { headline: ["Gym,", "then brunch."], need: "Clear out congestion", startingPoint: "Pore Power" },
@@ -293,6 +301,53 @@ export const projects = [
             ],
           },
         ],
+        responsibilities: {
+          heading: "Proposed responsibilities",
+          note: "Commercial terms would be set by the partners.",
+          columns: ["Workstream", "Reale", "Sephora"],
+          rows: [
+            {
+              workstream: "Routine Check script & training",
+              reale: "Writes it with Dr. Mian; funds training",
+              sephora: "Approves; fits it into existing consultations",
+            },
+            {
+              workstream: "In-store staffing",
+              reale: "Funds brand educators in the 8 activation doors",
+              sephora: "Advisors refer shoppers; manage store schedules",
+            },
+            {
+              workstream: "Trial sleeves",
+              reale: "Produces and funds 5,000 units",
+              sephora: "Distributes at the Routine Check",
+            },
+            {
+              workstream: "Fixtures",
+              reale: "Designs and funds",
+              sephora: "Approves placement and visual standards",
+            },
+            {
+              workstream: "Follow-up messages",
+              reale: "Writes copy; funds the program",
+              sephora: "Sends to opted-in Beauty Insiders (owns the data)",
+            },
+            {
+              workstream: "Creators",
+              reale: "Contracts and pays; enforces 18+ guardrails",
+              sephora: "Approves Sephora mentions and links",
+            },
+            {
+              workstream: "Inventory",
+              reale: "Commits stock for 16 doors + Sephora.com",
+              sephora: "Sets replenishment and in-stock targets",
+            },
+            {
+              workstream: "Measurement",
+              reale: "Defines the questions; shares DTC benchmarks",
+              sephora: "Shares aggregate results from Beauty Insider and store data",
+            },
+          ],
+        },
         conclusion:
           "The partnership works only if the launch creates value after the initial attention disappears.",
       },

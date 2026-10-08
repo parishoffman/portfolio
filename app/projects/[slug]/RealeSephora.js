@@ -285,6 +285,23 @@ function CampaignSystem({ cs, number }) {
               {s.signoff && <p className="script system-tile-signoff">{s.signoff}</p>}
             </li>
           ))}
+          {s.template && (
+            <li className="system-tile is-template">
+              <p className="label system-tile-meta">
+                <span>{s.template.label}</span>
+                <span>{s.template.count}</span>
+              </p>
+              <p className="system-tile-headline">
+                {s.template.headline.map((line) => (
+                  <span key={line}>{line}</span>
+                ))}
+              </p>
+              <p className="system-tile-need">
+                {s.template.need} <span aria-hidden="true">→</span> <strong>{s.template.startingPoint}</strong>
+              </p>
+              {s.signoff && <p className="script system-tile-signoff">{s.signoff}</p>}
+            </li>
+          )}
         </ul>
       </div>
     </section>
@@ -350,6 +367,35 @@ function Execution({ item, featured }) {
   );
 }
 
+// Who pays, who staffs, who owns the customer. Rows stack into blocks on phones.
+function Responsibilities({ table }) {
+  const [workstream, reale, sephora] = table.columns;
+  return (
+    <div className="responsibilities">
+      <h3 className="list-heading">{table.heading}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col" className="label">{workstream}</th>
+            <th scope="col">{reale}</th>
+            <th scope="col">{sephora}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {table.rows.map((row) => (
+            <tr key={row.workstream}>
+              <th scope="row" className="label">{row.workstream}</th>
+              <td data-label={reale}>{row.reale}</td>
+              <td data-label={sephora}>{row.sephora}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      {table.note && <p className="note">{table.note}</p>}
+    </div>
+  );
+}
+
 function ValueForBoth({ cs, number }) {
   const s = cs.valueForBoth;
   return (
@@ -370,6 +416,8 @@ function ValueForBoth({ cs, number }) {
             </div>
           ))}
         </div>
+
+        {s.responsibilities && <Responsibilities table={s.responsibilities} />}
 
         {s.conclusion && (
           <div className="callout">

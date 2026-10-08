@@ -974,6 +974,19 @@ a:hover { color: var(--terracotta-deep); }
 .system-tile-need strong { font-weight: 400; color: var(--terracotta-deep); }
 .system-tile-signoff { margin-top: auto !important; font-size: 1.4rem; line-height: 1.2; }
 
+/* The blank template card: the framework, ready for the next life moment */
+.system-tile.is-template {
+  background: none;
+  border: 1px dashed var(--ink);
+}
+.is-template .system-tile-headline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink);
+}
+.is-template .system-tile-need { border-top-style: dashed; color: var(--muted); }
+.is-template .system-tile-need strong { color: var(--muted); }
+.is-template .system-tile-signoff { color: var(--muted); }
+
 .creative-heading {
   margin: 0;
   font-family: var(--display);
@@ -1087,6 +1100,36 @@ a:hover { color: var(--terracotta-deep); }
 .proof-metric .label { color: var(--muted); font-size: 0.68rem; }
 .list-heading + .line-list li:first-child { border-top-color: var(--ink); }
 .value-columns .line-list li:first-child { border-top: 0; }
+/* Proposed responsibilities: who does what */
+.responsibilities { margin-top: 40px; }
+.responsibilities table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  border-top: 1px solid var(--ink);
+  font-size: 1.05rem;
+  line-height: 1.4;
+  text-align: left;
+}
+.responsibilities th,
+.responsibilities td { padding: 14px 16px 14px 0; vertical-align: top; border-bottom: 1px solid var(--line); }
+.responsibilities thead th { padding-top: 10px; padding-bottom: 10px; border-bottom-color: var(--ink); }
+.responsibilities thead th:not(.label) {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.responsibilities thead .label { color: var(--muted); }
+.responsibilities tbody th { width: 28%; padding-top: 18px; font-weight: 400; }
+.responsibilities td { width: 36%; }
+.responsibilities tbody tr { transition: background-color 200ms ease; }
+@media (hover: hover) {
+  .responsibilities tbody tr:hover { background-color: var(--sage); }
+}
+.responsibilities .note { margin: 10px 0 0; }
+
 .value-for-both .callout { margin-top: 40px; }
 .value-for-both .callout .display-headline { margin: 0; }
 
@@ -1196,6 +1239,25 @@ a:hover { color: var(--terracotta-deep); }
   .chapter-grid { grid-template-columns: 1fr; gap: 32px; }
 
   .value-columns { grid-template-columns: 1fr; }
+  .responsibilities thead { display: none; }
+  .responsibilities table,
+  .responsibilities tbody,
+  .responsibilities tr,
+  .responsibilities th,
+  .responsibilities td { display: block; width: auto; }
+  .responsibilities tr { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .responsibilities tbody th,
+  .responsibilities td { width: auto; padding: 0; border: 0; }
+  .responsibilities td { margin-top: 8px; }
+  .responsibilities td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--sans);
+    font-weight: 700;
+    font-size: 0.75rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
   .proof-grid { grid-template-columns: 1fr; }
   .steps > li { grid-template-columns: 28px 1fr; gap: 8px; }
   .step-options li { grid-template-columns: 1fr; gap: 2px; }
